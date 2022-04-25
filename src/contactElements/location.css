@@ -1,0 +1,28 @@
+.location {
+    display: inline-flex;
+    justify-content: space-between;
+    margin-bottom: 10vh;
+    position: relative;
+    right: 34vw;
+}
+
+.textLocation {
+    text-align: start;
+    margin-bottom: 8vh;
+    margin-top: 20vh;
+}
+
+@media (max-width: 767px) {
+    .location {
+        display: block;
+        margin-bottom: 70vh;
+        left: 14vw;
+    }
+    .textLocation {
+        font-size: 3.7vw;
+        text-align: start;
+        margin-bottom: 4vh;
+        margin-top: 8vh;
+        margin-left: 0vh;
+    }
+}

@@ -1,0 +1,40 @@
+.ad {
+    height: 30vh;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.advantageTitle {
+    justify-content: center;
+    font-weight: bold;
+    font-size: 28px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3vw;
+    padding: 0px 10px;
+    margin-top: 8vh;
+}
+
+.alladvantages {
+    padding-left: 35px;
+    width: 90vw;
+    margin-top: 18vh;
+    margin-left: 3vw;
+}
+
+@media (max-width:767px) {
+    .all {
+        width: 86vw;
+        margin-top: 18vh;
+    }
+    .advantageTitle {
+        justify-content: center;
+        font-weight: bold;
+        font-size: 28px;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 3vw;
+        padding: 0px 10px;
+        margin-top: 8vh;
+    }
+}

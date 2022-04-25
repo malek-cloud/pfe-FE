@@ -1,0 +1,254 @@
+#myVideo {
+    width: 100vw;
+    height: 100vh;
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+.content {
+    color: #f1f1f1;
+    width: 100%;
+    height: 100vh;
+    margin-top: -60vh;
+}
+
+.content .content-text {
+    text-align: center;
+}
+
+.content .content-text p {
+    margin: 4% -6%;
+    overflow: hidden;
+}
+
+.content .content-text p span {
+    font-size: 80px;
+    color: #FDCD25;
+    width: 95vw;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 110px;
+    display: none;
+}
+
+.content .content-text p span.text-in {
+    display: block;
+    animation: textIn 1s ease;
+    -webkit-animation: textIn 1s ease;
+}
+
+.content .content-text p span.text-out {
+    animation: textOut 1s ease;
+    -webkit-animation: textOut 1s ease;
+}
+
+@keyframes textIn {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes textOut {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.moredetails {
+    margin-top: 13vh;
+    text-decoration: none;
+    color: #FDCD25;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.arrowdetail {
+    margin-top: 0vh;
+    height: 30px;
+    width: 20px;
+    transition: .5s;
+    animation: zoominout 1.4s ease-in-out infinite;
+}
+
+.arrowdetail:hover {
+    height: 70px;
+    width: 58px;
+}
+
+@keyframes zoominout {
+    0% {
+        height: 30px;
+        width: 20px;
+    }
+    50% {
+        height: 40px;
+        width: 30px;
+    }
+    100% {
+        height: 30px;
+        width: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    #myVideo {
+        margin-top: 80px;
+        width: 100vw;
+        height: 30vh;
+    }
+    .content {
+        color: #f1f1f1;
+        width: 100%;
+        height: 30vh;
+        margin-top: -22vh;
+        margin-left: 20px;
+    }
+    .content .content-text p span {
+        font-size: 30px;
+        color: #FDCD25;
+        width: 100vw;
+        font-weight: 700;
+        display: inline-block;
+        line-height: 40px;
+        display: none;
+    }
+    .moredetails {
+        margin-top: 3vh;
+        text-decoration: none;
+        color: #FDCD25;
+        font-weight: 700;
+        font-size: 12px;
+        margin-left: -10vw;
+    }
+    .arrowdetail {
+        margin-left: -10vw;
+        margin-top: -1vh;
+        height: 20px;
+        width: 15px;
+        transition: .5s;
+        animation: zoominout 1.4s ease-in-out infinite;
+    }
+    @keyframes zoominout {
+        0% {
+            height: 20px;
+            width: 15px;
+        }
+        50% {
+            height: 30px;
+            width: 22px;
+        }
+        100% {
+            height: 20px;
+            width: 15px;
+        }
+    }
+}
+
+
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    margin-top: 20vh;
+    display: block;
+    background-color: rgba(46, 45, 46, 0.61);
+    width: fit-content;
+}
+
+.wrapper .static-txt {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.wrapper .dynamic-txts {
+    background-color: rgb(70, 10, 70);
+    width: 60vw;
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+}
+
+.dynamic-txts li {
+    list-style: none;
+    color: #FDCD25;
+    font-size: 60px;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+    animation: slide 42s steps(4) infinite;
+    -webkit-animation: slide 42s steps(4) infinite;
+}
+
+@keyframes slide {
+    100% {
+        top: -360px;
+    }
+}
+
+.dynamic-txts li span {
+    position: relative;
+    margin: 5px 0;
+    line-height: 90px;
+}
+
+.dynamic-txts li span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(70, 10, 70);
+    border-left: 2px solid white;
+    animation: typing 10.5s steps(21) infinite;
+    -webkit-animation: typing 10.5s steps(100) infinite;
+}
+
+@keyframes typing {
+    40%,
+    60% {
+        left: calc(100% + 20px);
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1170px;
+    width: 100%;
+    margin: auto;
+}
+*/

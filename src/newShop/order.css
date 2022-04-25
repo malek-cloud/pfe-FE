@@ -1,0 +1,232 @@
+.endOrderPageElements {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20vh;
+    background-color: whitesmoke;
+    height: fit-content;
+}
+
+.persoInfo {
+    width: 24vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin-bottom: 2vh;
+}
+
+.orderInfo {
+    margin-left: 1vw;
+    width: 72vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin-bottom: 6vh;
+}
+
+.middleTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(49, 3, 68);
+    margin: 2vh 1.5vw 0vh 1.5vw;
+}
+
+.titleBetweenLines {
+    margin: 3vh 0vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lineOne {
+    border: 2px solid whitesmoke;
+    width: 8vw;
+    height: 4px;
+}
+
+.iTemInInfoBloc {
+    text-align: start;
+    display: flex;
+    justify-content: start;
+    width: 21vw;
+    align-items: flex-start;
+    margin-bottom: 2vh;
+    padding: 1vh 1.4vw;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.iTemInInfoBloc:hover {
+    background-color: #fdb925;
+}
+
+.labelDesc {
+    font-weight: 600;
+    color: black;
+}
+
+.actualInfoValue {
+    margin-left: 2vw;
+}
+
+.infoBloc {
+    margin-bottom: 4vh;
+}
+
+.welcomingImage {
+    height: 22vh;
+    width: 16vw;
+    margin-bottom: 5vh;
+    margin-top: 1vh;
+}
+
+.textAreaAdress {
+    border: 2px solid rgb(184, 181, 181);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    margin-bottom: 4vh;
+}
+
+.inputRegion {
+    border: 2px solid rgb(184, 181, 181);
+    border-radius: 4px;
+    width: 37vw;
+    height: 7vh;
+}
+
+.orderLabel {
+    text-align: start;
+    margin-top: 4vh;
+    margin-bottom: 0.5vh;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.addressPart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payPart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6vh;
+    margin-top: 4vh;
+    margin-left: -17.2vw;
+}
+
+.sepVertLine {
+    border: 2px solid rgb(219, 218, 218);
+    height: 44vh;
+    margin: 0vh 4vw -1.4vw 3vw;
+}
+
+.adressTitle {
+    margin-left: -6vw;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    padding: 1vh 1.5vw;
+    background-color: #fdb925;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    cursor: pointer;
+}
+
+.radioLabel {
+    margin-left: 1vw;
+    cursor: pointer;
+}
+
+.paymentRadio {
+    display: flex;
+    margin-top: 4vh;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ChoosePayWith {
+    font-weight: 600;
+    color: black;
+}
+
+.paymentMethods {
+    margin-top: 4vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 6vh;
+    width: 30vw;
+}
+
+.payMethod {
+    height: 11vh;
+    width: 8vw;
+    padding-top: 3.5vh;
+    font-weight: 600;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.payMethod:hover {
+    background-color: #fdb925;
+}
+
+.totalOfOrder {
+    background-color: white;
+    padding: 4vh 0px;
+}
+
+.passiveTotal {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.theTotalPrice {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.endOrder {
+    font-size: 20px;
+    font-weight: 600;
+    transition: .4s;
+    cursor: pointer;
+    color: white;
+    background-color: rgba(49, 3, 68);
+    padding: 1vh 4vw;
+    border-radius: 4px;
+    margin-bottom: 4vh;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
+}
+
+.endOrder:hover {
+    transform: scaleX(1.2);
+    -webkit-transform: scaleX(1.2);
+    -moz-transform: scaleX(1.2);
+    -ms-transform: scaleX(1.2);
+    -o-transform: scaleX(1.2);
+}

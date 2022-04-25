@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;900&display=swap');
+.containerService {
+    height: fit-content;
+    width: 18vw;
+    margin: 25px 15px;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px #d0d0d0;
+    transition: 0.7s;
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 18vw;
+    height: 180px;
+    clip-path: circle(180px at center 0);
+}
+
+.content {
+    text-align: center;
+    color: black;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 22px;
+    margin-top: 20px;
+    color: black;
+    padding: 0px 20px 0px 20px;
+}
+
+div {
+    text-align: center;
+}
+
+.descripServices {
+    font-weight: 300;
+    text-align: start;
+    padding: 0px 20px 0px 20px;
+    text-align: center;
+}
+
+.details {
+    color: white;
+    background-color: rgba(49, 3, 68, 255);
+    text-decoration: none;
+    padding: 8px 25px;
+    border-radius: 8px;
+    margin: 0px 30px 20px 30px;
+}
+
+.details:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.container1:hover .containerService {
+    /* filter: blur(10px);*/
+    transform: scale(0.9);
+}
+
+.container1 .containerService:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width:767px) {
+    .containerService {
+        height: fit-content;
+        width: 80vw;
+        margin: 50px 10px;
+        box-shadow: 0 0 10px 5px #d0d0d0;
+        border-radius: 20px;
+        background-color: white;
+        cursor: pointer;
+        transition: 0.5s;
+        align-items: center;
+        flex-direction: column;
+    }
+    .container1:hover .containerService {
+        transform: scale(1);
+    }
+    .container1 .containerService:hover {
+        transform: scale(1);
+    }
+    .image {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        width: 80vw;
+        height: 180px;
+        clip-path: circle(180px at center 0);
+    }
+}

@@ -1,0 +1,203 @@
+.backnavbar {
+    display: flex;
+    height: 12vh;
+    background-color: rgba(49, 3, 68, 255);
+    width: 100vw;
+    transition: 0.2s;
+}
+
+.help {
+    background-color: rgb(219, 202, 215);
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 1px 8px rgb(110, 71, 114);
+}
+
+.one {
+    color: black;
+    font-size: 20px;
+    margin-top: 13vh;
+    font-weight: 300;
+    text-align: left;
+    margin-left: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.one:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: rgb(58, 55, 55);
+}
+
+.product {
+    background-color: rgb(250, 243, 250);
+    border-radius: 10px;
+    height: 25vh;
+    margin-left: 16px;
+    margin-bottom: 2vh;
+    padding-left: 0px;
+    padding-right: 0px;
+    box-shadow: 0px 1px 4px rgb(99, 81, 99);
+}
+
+.name {
+    position: absolute;
+    bottom: 0%;
+    background-color: rgb(72, 17, 83);
+    opacity: 0.7;
+    width: 12vw;
+    color: white;
+    margin-left: 0.05vw;
+    padding: 6px 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.price {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background-color: rgb(72, 17, 83);
+    padding: 4px 8px;
+    color: white;
+    font-weight: 700;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 10px;
+}
+
+.productimage {
+    height: 25vh;
+    width: 12vw;
+    border-radius: 10px;
+}
+
+.categories {
+    font-weight: 900;
+    font-size: 24px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding-top: 24px;
+    color: rgb(82, 16, 82);
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.number {
+    margin-right: 3px;
+    margin-left: 3px;
+    width: fit-content;
+    min-width: 25px;
+    color: white;
+    border-radius: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: fit-content;
+    background-color: rgb(114, 41, 114);
+}
+
+.number:hover {
+    cursor: pointer;
+    background-color: rgb(35, 5, 44);
+}
+
+.row1 {
+    padding-left: 4vw;
+}
+
+.categ {
+    font-size: 24px;
+    margin-bottom: 1vh;
+    margin-top: 2.5vh;
+    font-weight: bold;
+}
+
+.categories {
+    background-color: white;
+    height: 74vh;
+    margin-top: 2vh;
+    margin-left: 2vw;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: 0px 1px 6px rgb(68, 67, 68);
+}
+
+.echantillonheader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2vh;
+}
+
+.search {
+    height: 6vh;
+    margin-bottom: 1vh;
+    margin-top: 2.5vh;
+    border: 1px solid gray;
+    padding-left: 12px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.echantillon {
+    background-color: white;
+    height: 74vh;
+    margin-top: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    border-radius: 10px;
+    box-shadow: 0px 1px 6px rgb(68, 67, 68);
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(100vw);
+        -webkit-transform: translateX(100vw);
+        -moz-transform: translateX(100vw);
+        -ms-transform: translateX(100vw);
+        -o-transform: translateX(100vw);
+    }
+}
+
+.helptext {
+    color: rgb(56, 9, 51);
+    font-size: 24px;
+    font-weight: bold;
+    animation: move 5s ease-in-out infinite;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-animation: move 5s ease-in-out infinite;
+}
+
+@media (max-width:767px) {
+    .helptext {
+        color: rgb(56, 9, 51);
+        font-size: 14px;
+        font-weight: bold;
+        animation: move 2s linear infinite;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        -webkit-animation: move 3s linear infinite;
+    }
+    .help {
+        background-color: rgb(202, 175, 195);
+        height: 6vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 2px 10px rgb(60, 7, 65);
+    }
+    @keyframes move {
+        0% {
+            transform: translateX(100vw);
+        }
+    }
+}

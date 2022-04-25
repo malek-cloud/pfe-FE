@@ -1,0 +1,108 @@
+.containerField {
+    height: fit-content;
+    width: 18vw;
+    margin: 25px 15px;
+    box-shadow: 0 0 10px 5px #d0d0d0;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerTitle {
+    background-color: rgba(49, 3, 68, 255);
+    clip-path: circle(130px at center 0);
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.containerTitle h4 {
+    padding: 0px 15px;
+    margin-top: 40px;
+}
+
+.descrip {
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 0px 30px;
+}
+
+.buttonDetail {
+    background-color: rgba(49, 3, 68, 255);
+    color: white;
+    padding: 6px 42px;
+    font-size: 16px;
+    width: fit-content;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 8px;
+    margin: 20px 30px 20px 30px;
+}
+
+.buttonDetail:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.container1:hover .containerField {
+    transform: scale(0.9);
+}
+
+.container1 .containerField:hover {
+    /*filter: blur(0px);*/
+    transform: scale(1.1);
+}
+
+.container2:hover .containerField {
+    transform: scale(0.9);
+}
+
+.container2 .containerField:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+@media (max-width:767px) {
+    .containerField {
+        height: fit-content;
+        width: 80vw;
+        margin: 50px 20px;
+        box-shadow: 0 0 10px 5px #d0d0d0;
+        border-radius: 20px;
+        background-color: white;
+        cursor: pointer;
+        transition: 0.5s;
+        align-items: center;
+        flex-direction: column;
+    }
+    .container1:hover .containerField {
+        transform: scale(1);
+        opacity: 1;
+    }
+    .container1 .containerField:hover {
+        transform: scale(1);
+        opacity: 1;
+    }
+    .containerTitle {
+        background-color: rgba(49, 3, 68, 255);
+        clip-path: circle(180px at center 0);
+        color: white;
+        font-size: 25px;
+        width: 100%;
+        height: 180px;
+        border-radius: 20px;
+    }
+}

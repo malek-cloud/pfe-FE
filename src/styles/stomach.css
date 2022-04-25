@@ -1,0 +1,135 @@
+.carouselTitle {
+    justify-content: center;
+    font-weight: bold;
+    font-size: 38px;
+    align-items: center;
+    text-align: center;
+    margin-top: 12vh;
+    padding: 0px 40px;
+}
+
+
+/*.left,
+.right {
+    border-radius: 100%;
+    background-color: rgb(37, 12, 59);
+    color: white;
+    font-weight: 900;
+    font-size: 20px;
+    box-shadow: 0 5px 20px 5px #bcc29d;
+    padding: 12px 20px;
+    margin: 0px 20px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+
+.left:hover,
+.right:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}*/
+
+.line {
+    width: 150px;
+    border: 2px solid rgba(49, 3, 68, 255);
+    position: relative;
+    left: 44%;
+}
+
+.container1 {
+    height: fit-content;
+    background-color: rgb(247, 245, 245);
+    margin: 30px 0px;
+    display: inline-flex;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px #ececec;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container2 {
+    height: fit-content;
+    background-color: rgb(247, 245, 245);
+    margin: 30px 0px;
+    display: inline;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px #ececec;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media (max-width:767px) {
+    /* .left,
+    .right {
+        background-color: transparent;
+        font-size: 0px;
+        box-shadow: none;
+        margin: 0px;
+    }*/
+    .line {
+        width: 40vw;
+        border: 2px solid rgba(49, 3, 68, 255);
+    }
+    .arrow {
+        position: absolute;
+        color: #000000;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .nextArrow {
+        top: 24vh;
+        right: -6vw;
+        display: none;
+    }
+    .prevArrow {
+        top: 24vh;
+        left: -6vw;
+        display: none;
+    }
+    .slick-slider {
+        width: 50vw;
+        left: 0vw;
+    }
+    .container1 {
+        height: fit-content;
+        background-color: rgb(247, 245, 245);
+        margin: 30px 0px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 5px #ececec;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+.arrow {
+    position: absolute;
+    color: #000000;
+    font-size: 3em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nextArrow {
+    top: 24vh;
+    right: -6vw;
+}
+
+.prevArrow {
+    top: 24vh;
+    left: -8.5vw;
+}
+
+.slick-slider {
+    width: 80vw;
+    left: 2vw;
+}

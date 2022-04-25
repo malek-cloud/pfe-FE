@@ -1,0 +1,20 @@
+.inlineItems {
+    display: inline-flex;
+    align-items: flex-start;
+}
+
+.sepLine {
+    border: 1px solid gainsboro;
+    height: 50vh;
+    margin-top: 10vh;
+    position: relative;
+    width: 2px;
+    left: 20%
+}
+
+@media (max-width: 767px) {
+    .inlineItems {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,42 @@
+.member {
+    height: 30vh;
+    width: 20vw;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.team {
+    height: fit-content;
+    min-height: 40vh;
+    width: 20vw;
+    margin: 0px 25px;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px #d0d0d0;
+    transition: 0.7s;
+}
+
+@media (max-width:767px) {
+    .team {
+        height: fit-content;
+        min-height: 40vh;
+        width: 70vw;
+        margin: 20px 25px;
+        border-radius: 20px;
+        background-color: white;
+        text-align: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 0 10px 5px #d0d0d0;
+        transition: 0.7s;
+    }
+    .member {
+        height: 30vh;
+        width: 70vw;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+}

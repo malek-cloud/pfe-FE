@@ -1,0 +1,195 @@
+#newServicesContainer {
+    height: 100vh;
+    width: 100vw;
+    display: inline-flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    margin-top: -20vh;
+}
+
+.attract {
+    font-size: 50px;
+    color: #FDCD25;
+    font-weight: 600;
+    margin-top: 15vh;
+    text-shadow: #FC0 1px 0 10px;
+}
+
+.serviceDescription {
+    width: 55vw;
+    padding: 8vh 3vw;
+    align-items: center;
+    position: relative;
+    top: 14vh;
+}
+
+.seperateLine {
+    height: 2px;
+    width: 16vw;
+    justify-content: start;
+    border: 1px solid white;
+}
+
+.inlineElementsServiceTitle {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2vh;
+    position: relative;
+    left: 15.5vw;
+    width: 100%;
+}
+
+.inlineElementsServiceTitle:hover {
+    color: #FDCD25;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.serviceDescriptionParagraphe {
+    text-align: left;
+    display: inline-flex;
+    font-weight: 500;
+    padding-top: 0vh;
+    align-items: center;
+}
+
+.serviceNumber {
+    font-size: 8vw;
+    font-weight: 900;
+    color: #FDCD25;
+    cursor: pointer;
+}
+
+.serviceParagraphe {
+    padding: 2vh 2vw;
+    border-radius: 6px;
+    height: fit-content;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.goForDetails {
+    display: inline-flex;
+    align-items: center;
+    font-size: 24px;
+    justify-content: end;
+    width: 100%;
+    color: white;
+}
+
+.detailWord {
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.goForDetails:hover {
+    color: #FDCD25;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.seperateLine2 {
+    height: 2px;
+    width: 20vw;
+    border: 1px solid white;
+    position: relative;
+    left: 59%;
+    margin-top: 1vh;
+}
+
+.servicesList {
+    padding-left: 12vw;
+    font-size: 20px;
+    font-weight: 600;
+    /* color: rgb(41, 13, 66);*/
+    color: white;
+}
+
+.serviceButton {
+    width: fit-content;
+    text-align: start;
+    margin-top: 2vh;
+    background-color: transparent;
+    margin-bottom: 2vh;
+    padding: 6px 16px;
+    border-radius: 10px;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.serviceButton:hover {
+    background-color: #FDCD25;
+}
+
+.servicesButtonClicked {
+    transform: scale(2);
+    border: none;
+    margin-bottom: 4vh;
+    margin-left: 3vw;
+    color: #FDCD25;
+    text-align: start;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    #newServicesContainer {
+        height: 132vh;
+        width: 99vw;
+        display: flex;
+        flex-direction: column-reverse;
+        background-repeat: no-repeat;
+        background-size: cover;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        margin-top: 0vh;
+    }
+    .serviceDescription {
+        width: 85vw;
+        padding: 8vh 4vw;
+        align-items: flex-start;
+        position: relative;
+        top: -10vh;
+    }
+    .servicesList {
+        padding-left: 4vw;
+        font-size: 18px;
+        font-weight: 600;
+        /* color: rgb(41, 13, 66);*/
+        color: white;
+        position: relative;
+        top: -12vh;
+    }
+    .servicesButtonClicked {
+        transform: scale(1.5);
+        border: none;
+        margin-left: 2vw;
+        color: #FDCD25;
+        text-align: start;
+        cursor: pointer;
+    }
+    .serviceButton {
+        width: fit-content;
+        text-align: start;
+        margin-top: 2vh;
+        background-color: transparent;
+        margin-bottom: 2vh;
+        padding: 6px 16px;
+        border-radius: 10px;
+        border: 2px solid white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+}
+
+.downArrow {
+    height: 60px;
+    width: 60px;
+    margin-bottom: -32px;
+}

@@ -1,0 +1,238 @@
+    .product {
+        width: 20vw;
+        margin: 16px 16px;
+        height: 55vh;
+        border: 1px solid rgb(241, 238, 238);
+        border-radius: 0px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .catName {
+        margin-top: 50px;
+        margin-bottom: -55px;
+        font-weight: 700;
+        font-size: 20px;
+        text-align: start;
+        margin-left: 23.2vw;
+    }
+    
+    .nameProduct {
+        font-size: 22px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .nameProductModal {
+        font-size: 22px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+        margin-left: 1vw;
+    }
+    
+    .nameProduct:hover {
+        color: #FDCD25;
+        text-decoration: underline;
+    }
+    
+    .products {
+        display: grid;
+        grid-template-columns: repeat(3, 3fr);
+        width: 70vw;
+        margin-left: 22vw;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
+    
+    .imageProduct {
+        width: 20vw;
+        height: 16vw;
+    }
+    
+    .priceProduct {
+        font-size: 20px;
+        font-weight: 900;
+        color: rgb(74, 12, 77);
+    }
+    
+    .stock {
+        border: 1px solid gainsboro;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        width: fit-content;
+        padding: 8px 24px;
+        position: relative;
+        left: 31%;
+        margin-top: 2vh;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    
+    .stock:hover {
+        color: white;
+        font-weight: 800;
+        background-color: #FDCD25;
+        left: 28%;
+    }
+    
+    .imagePanier {
+        width: 26vw;
+        height: 50vh;
+        margin-top: 5vh;
+        margin-left: 2vh;
+    }
+    
+    .adjustQuantity {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 8.2vw;
+    }
+    
+    .quantityPanier {
+        border: 1px solid gainsboro;
+        padding: 6px 24px;
+        font-size: 24px;
+        margin-right: 16px;
+    }
+    
+    .up,
+    .down {
+        cursor: pointer;
+    }
+    
+    .quant {
+        font-size: 18px;
+        font-weight: 700;
+        margin-right: 16px;
+        margin-top: -18px;
+        width: 90px;
+    }
+    
+    .horline {
+        border: 0.5px solid gainsboro;
+        margin: 2vh 8vw;
+        width: 18vw;
+    }
+    
+    .total {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 8.2vw;
+    }
+    
+    .prix {
+        font-size: 18px;
+        font-weight: 700;
+        margin-right: 16px;
+        width: 100px;
+    }
+    
+    .totalPrice {
+        width: 80px;
+        text-decoration: underline;
+    }
+    
+    .frais {
+        width: 140px;
+    }
+    
+    .livraison {
+        cursor: pointer;
+        display: inline-flex;
+        width: 330px;
+        height: 50px;
+        font-size: 14px;
+        background-color: white;
+        border: 1px solid gainsboro;
+        padding: 2vh 0.5vw;
+        margin-left: 8vw;
+        margin-top: 2vh;
+        font-weight: 600;
+    }
+    
+    @media (max-width: 767px) {
+        .catName {
+            margin-top: 30px;
+            margin-bottom: -55px;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: start;
+            margin-left: 4vw;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            width: 90vw;
+            margin-left: 2vw;
+            margin-top: 10vh;
+            margin-bottom: 5vh;
+        }
+        .product {
+            width: 42vw;
+            margin: 16px 12px;
+            height: 40vh;
+            border: 1px solid rgb(241, 238, 238);
+            border-radius: 0px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        .imageProduct {
+            width: 42vw;
+            height: 20vh;
+        }
+        .nameProduct {
+            font-size: 20px;
+        }
+        .stock {
+            border: 1px solid gainsboro;
+            background-color: #FDCD25;
+            color: white;
+            border-radius: 5px;
+            width: fit-content;
+            padding: 8px 24px;
+            position: relative;
+            left: 18%;
+            margin-top: 2vh;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .imagePanier {
+            width: 80vw;
+            height: 50vh;
+            margin-top: -5vh;
+            margin-bottom: -10vh;
+        }
+        .total {
+            display: inline-flex;
+            align-items: center;
+            margin-left: -4vw;
+            margin-top: 2vh;
+        }
+        .prix {
+            font-size: 18px;
+            font-weight: 700;
+            margin-right: 0px;
+            width: 100px;
+        }
+        .livraison {
+            cursor: pointer;
+            display: inline-flex;
+            width: 280px;
+            height: 50px;
+            font-size: 12px;
+            background-color: white;
+            border: 1px solid gainsboro;
+            padding: 2vh 0.5vw;
+            margin-left: 0vw;
+            margin-top: 2vh;
+            font-weight: 600;
+        }
+    }

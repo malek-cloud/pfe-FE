@@ -1,0 +1,58 @@
+.optionsSort {
+    padding: 12px 0px;
+    background-color: ghostwhite;
+    color: black;
+}
+
+.sortSelector {
+    width: 180px;
+    background-color: rgb(236, 233, 221);
+    font-size: 16px;
+    border: none;
+    height: 38px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.inlineSort {
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    font-weight: 700;
+    position: relative;
+    left: 16%;
+}
+
+.sortTitle {
+    color: black;
+    margin-right: 6px;
+    font-weight: 300;
+}
+
+@media (max-width: 767px) {
+    .inlineSort {
+        display: inline-flex;
+        color: white;
+        font-weight: 600;
+        margin-top: 16px;
+        width: 58%;
+        justify-content: end;
+    }
+    .sortTitle {
+        color: black;
+        margin-right: 6px;
+        font-weight: 300;
+        font-size: 14px;
+    }
+    .sortSelector {
+        width: 120px;
+        background-color: rgb(236, 233, 221);
+        font-size: 14px;
+        border: none;
+        text-align: center;
+        height: 30px;
+        cursor: pointer;
+        font-weight: 300;
+        padding-top: -10px;
+    }
+}

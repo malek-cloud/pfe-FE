@@ -1,0 +1,263 @@
+.vide {
+    height: 54vh;
+    margin-top: 6vh;
+    width: 80%;
+    background-color: white;
+    margin-bottom: -4vh;
+    border-radius: 4px;
+    box-shadow: 2px 2px 6px rgb(177, 175, 176);
+}
+
+.panierPage {
+    background-color: #f3f3f3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textPanier {
+    color: gray;
+    margin-top: 6vh;
+    font-size: 20px;
+}
+
+.imagechariot {
+    height: 26vh;
+    margin-top: 1vh;
+}
+
+.goShop {
+    margin-top: 2vh;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttonGoShop {
+    text-decoration: none;
+    margin-left: 10px;
+    width: fit-content;
+    margin-top: 4px;
+    color: white;
+    font-size: 22px;
+    background-color: #FCCD27;
+    padding: 2px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.buttonGoShop:hover {
+    transform: scaleX(1.5);
+    color: white;
+}
+
+.panierPlein {
+    display: flex;
+}
+
+.titrePanierPlein {
+    font-weight: 800;
+    font-size: 22px;
+    margin-top: 4vh;
+    padding: 6px 24px;
+    background-color: #FCCD27;
+    width: fit-content;
+    text-align: center;
+}
+
+.panierCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.productsPanierListe {
+    margin-left: 3vw;
+    margin-top: 4vh;
+}
+
+.produitPanier {
+    display: flex;
+    position: relative;
+    top: 0%;
+}
+
+.produitPanierRemoved {
+    display: flex;
+    transition: 0.8s;
+    transform: translateX(-120%);
+}
+
+.imageProduitPanier {
+    height: 15vh;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 2px 2px 6px rgb(177, 175, 176);
+    margin-bottom: 1vh;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.donneeProduitPanier {
+    display: flex;
+    margin-left: 1.5vw;
+    margin-top: 0.5vh;
+    width: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.titreProduitPanier {
+    font-weight: 700;
+    font-size: 18px;
+    width: 15vw;
+    text-align: start;
+}
+
+.prixProduitPanier {
+    font-size: 14px;
+    margin-top: 1vh;
+}
+
+.produitPanier {
+    background-color: white;
+    width: fit-content;
+    padding: 2vh 1.5vw;
+    border-radius: 2px;
+    box-shadow: 2px 2px 6px rgb(177, 175, 176);
+}
+
+.deleteProductPanier {
+    margin-left: 10vw;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+.rightSidePanier {
+    display: flex;
+    flex-direction: column;
+}
+
+.totalProduitPrix {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.Commande {
+    background-color: white;
+    margin: 4vh 2vw;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2px;
+    box-shadow: 2px 2px 6px rgb(177, 175, 176);
+    padding: 5vh 28px 1.8vh 28px;
+    width: 28vw;
+}
+
+.totalProduit {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.totalPrixProduit {
+    font-size: 15px;
+}
+
+.seperateLineTotal {
+    border: 1.6px solid gainsboro;
+    width: 100%;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.totalcount {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.totalPrix {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.validateCommande {
+    padding: 8px 24px;
+    background-color: #FCCD27;
+    color: white;
+    font-weight: bold;
+    margin: 5vh 0px 2vh 0px;
+    cursor: pointer;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.4s;
+}
+
+.validateCommande:hover {
+    transform: scaleX(1.15);
+    -webkit-transform: scaleX(1.15);
+    -moz-transform: scaleX(1.15);
+    -ms-transform: scaleX(1.15);
+    -o-transform: scaleX(1.15);
+}
+
+.questionCommande {
+    background-color: white;
+    padding: 8px 2px;
+    margin-left: 2vw;
+    width: 28vw;
+    font-weight: bold;
+    border-radius: 2px;
+    box-shadow: 2px 2px 6px rgb(177, 175, 176);
+}
+
+.avantageCommande {
+    background-color: white;
+    width: 28vw;
+    margin-top: 3vh;
+    padding-bottom: 20px;
+    margin-left: 2vw;
+    border-radius: 2px;
+    box-shadow: 2px 2px 6px rgb(177, 175, 176);
+}
+
+.livraison {
+    margin-left: 10px;
+}
+
+.goBackToShop {
+    display: flex;
+    margin-top: 2vh;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.goBackArrow {
+    font-weight: 800;
+    font-size: 28px;
+    color: rgb(73, 72, 72);
+}
+
+.continueAchat {
+    margin-top: 10px;
+    margin-left: 6px;
+    font-weight: bold;
+    color: rgb(73, 72, 72);
+}
+
+.continueAchat:hover {
+    text-decoration: underline;
+}

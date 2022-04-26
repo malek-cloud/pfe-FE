@@ -3,14 +3,17 @@ import React, { useState } from "react";
 import Quantity from "./quantity";
 import "./products.css";
 import { useBasketUpdate } from "../context/basketContext";
+import { useCardUpdate } from "../context/cardContext";
 
 function BuyModal(props) {
  
 
   const [quantity, setQuantity] = useState(1);
   const updateBasket = useBasketUpdate();
+  const updateCard = useCardUpdate();
   function addToPanel() {
     updateBasket(quantity);
+    updateCard(props.item)
     props.onHide()
   }
   return (
@@ -33,15 +36,15 @@ function BuyModal(props) {
         <Modal.Body>
           <div className="row mb-2">
             <div className="col-md-5">
-              <img className="imagePanier" src="/images/kitIOT.png" alt="" />
+              <img className="imagePanier" src={props.image} alt="" />
             </div>
             <div className="col-md-5 mt-4">
-              <div className="nameProductModal"> {props.name}kit IOT </div>
+              <div className="nameProductModal"> {props.name} </div>
               <div className="horline"></div>
               <Quantity setQuantity={setQuantity} quantity={quantity} />
               <div className="total">
                 <div className="prix">Prix total : </div>
-                <div className="totalPrice">{99 * quantity + "DT"}</div>
+                <div className="totalPrice">{props.price * quantity + " DT"}</div>
               </div>
 
               <div className="horline"></div>

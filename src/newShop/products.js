@@ -21,7 +21,7 @@ function Products(props) {
     }
 
   },[basket])
-  /*  useEffect(() => {
+    useEffect(() => {
             axios({
               method: "get",
               url: process.env.REACT_APP_BACKEND_URL + "shop/Products",
@@ -30,7 +30,7 @@ function Products(props) {
               setShop(resp.data.products);
               setLoader(false);
             });
-          }, []);*/
+          }, []);
   return (
     <div>
       <div className="inlinePanel">
@@ -51,22 +51,16 @@ function Products(props) {
         </Link>
       </div>
       <div className="products">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        {/*  {loader ? (
+          {loader ? (
             <div className="spinner-border" role="status"></div>
           ) : (
             shop.map((item) =>
               item.category === props.category ? (
                 <Product
-                setId={props.setId}
                   key={item._id}
                   id={item._id}
                   name={item.name}
+                  item={item}
                   description={item.description}
                   price={item.price}
                   category={item.category}
@@ -76,7 +70,7 @@ function Products(props) {
                 />
               ) :""
                 )
-          )}*/}
+          )}
       </div>
       <Snackbar
             anchorOrigin={{ vertical:'bottom', horizontal:'center' }}

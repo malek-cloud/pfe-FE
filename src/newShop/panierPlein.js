@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./panier.css";
 import { Link } from "react-router-dom";
-import { useCardItems } from "../context/cardContext";
+import { useCardItems, useTotal } from "../context/cardContext";
 import ItemInPanier from "./itemInPanier";
 function PanierPlein() {
   const cardItems = useCardItems();
+  const total = useTotal();
 
   return (
     <div className="panierCenter">
@@ -13,7 +14,8 @@ function PanierPlein() {
         <div>
         <div className="productsPanierListe">
           {cardItems.map((element, index) => {
-            return <ItemInPanier element={element} key={index} />;
+            
+            return <ItemInPanier element={element} key={index}  />;
           })}
         </div>
 
@@ -27,7 +29,7 @@ function PanierPlein() {
         <div className="Commande">
           <div className="totalProduitPrix">
             <div className="totalProduit">Articles</div>
-            <div className="totalPrixProduit">180DT</div>
+            <div className="totalPrixProduit">{total} DT</div>
           </div>
           <div className="totalProduitPrix">
             <div className="totalProduit">Livraison</div>
@@ -36,7 +38,7 @@ function PanierPlein() {
           <div className="seperateLineTotal"> </div>
           <div className="totalProduitPrix">
             <div className="totalcount">Total</div>
-            <div className="totalPrix">186DT</div>
+            <div className="totalPrix">{total + 6} DT</div>
           </div>
           <Link to="/account" className="validateCommande">
             Valider votre commande

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Quantity from "./quantity";
 import "./products.css";
 import { useBasketUpdate } from "../context/basketContext";
-import { useCardUpdate } from "../context/cardContext";
+import { useCardUpdate  } from "../context/cardContext";
 
 function BuyModal(props) {
  
@@ -12,8 +12,9 @@ function BuyModal(props) {
   const updateBasket = useBasketUpdate();
   const updateCard = useCardUpdate();
   function addToPanel() {
-    updateBasket(quantity);
-    updateCard(props.item)
+    console.log(quantity + " hedhy quantity that should be added to basket")
+    updateBasket(quantity); //add quantity to basket in basket context
+    updateCard(props.item, quantity)
     props.onHide()
   }
   return (

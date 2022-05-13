@@ -1,11 +1,31 @@
-
+import { useCardUpdate, useDeleteItem } from "../context/cardContext";
+import { useBasketUpdate, useRemoveBasket } from "../context/basketContext";
 function Quantity(props) {
+  const add = useCardUpdate();
+  const remove = useDeleteItem();
+  const addBasket = useBasketUpdate();
+  const removeBasket = useRemoveBasket();
+
   function upquantity() {
     props.setQuantity(props.quantity + 1);
+    if (props.inPanier) {
+      addBasket(1);
+      if (props.item) {
+        add(props.item, 1);
+      }
+    }
+
+    console.log("ija hani chaditek ");
   }
   function downquantity() {
     if (props.quantity > 1) {
       props.setQuantity(props.quantity - 1);
+      if (props.inPanier) {
+        removeBasket(1);
+        if (props.item) {
+          remove(props.item, 1);
+        }
+      }
     }
   }
   return (

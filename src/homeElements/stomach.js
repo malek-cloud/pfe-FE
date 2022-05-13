@@ -8,11 +8,13 @@ import AboutUs from "../elements/aboutus";
 function Stomach() {
   return (
     <section>
-      <div className="inn">
+     {/*  <div className="inn">
         <img id="innovation" src="images/innovation.png" alt="" />
         
       </div>
       <div className="line"></div>
+      */}
+      
 
       <div className="services">
         <AboutUs />

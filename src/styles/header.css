@@ -69,7 +69,7 @@ body {
 
 .mainCarousel {
     width: 100vw;
-    height: 65vh;
+    height: 88vh;
     display: inline-flex;
     justify-content: center;
     text-align: center;
@@ -96,37 +96,16 @@ body {
 .paragrapheCarousel {
     font-size: 35px;
     font-weight: 400;
-    margin-bottom: 4vh;
+    margin-bottom: 17vh;
+    color: #FCCD27;
 }
 
 .h3carousel {
     font-size: 9vw;
     font-weight: 900;
     margin-bottom: 6vh;
-    width: fit-content;
-    margin-left: 20vw;
-    margin-right: 8vw;
-    color: white;
-}
-
-.h3carousel1 {
-    font-size: 9vw;
-    font-weight: 900;
-    margin-right: 6vw;
-    margin-bottom: 6vh;
-    width: fit-content;
-    margin-left: 6vw;
-    color: white;
-}
-
-.h3carousel2 {
-    font-size: 9vw;
-    font-weight: 900;
-    margin-bottom: 6vh;
-    width: fit-content;
-    margin-left: 18vw;
-    margin-right: 8vw;
-    color: white;
+    width: 100%;
+    color: #FCCD27;
 }
 
 .intro {
@@ -303,7 +282,8 @@ body {
         padding-left: 10px;
         padding-top: 10vh;
         padding-bottom: 2vh;
-        width: 55vw;
+        width: 100vw;
+        margin-right: 50vw;
         height: fit-content;
         background-color: rgb(59, 9, 61);
         transition: 3s;
@@ -347,40 +327,23 @@ body {
     }
     .mainCarousel {
         width: 100vw;
-        height: 45vh;
+        height: 88vh;
         display: inline-flex;
         justify-content: center;
         text-align: center;
         margin-top: 12vh;
     }
     .paragrapheCarousel {
-        font-size: 20px;
+        font-size: 26px;
+        margin-bottom: 0vh;
+        margin-top: 5vh;
     }
     .h3carousel {
-        font-size: 35px;
+        font-size: 50px;
         font-weight: 900;
-        margin-bottom: 4vh;
-        width: fit-content;
-        margin-left: 18vw;
-        color: white;
-    }
-    .h3carousel1 {
-        font-size: 35px;
-        font-weight: 900;
-        margin-bottom: 4vh;
-        width: fit-content;
-        margin-left: 2vw;
-        margin-right: 2vw;
-        color: white;
-    }
-    .h3carousel2 {
-        font-size: 35px;
-        font-weight: 900;
-        margin-bottom: 4vh;
-        width: fit-content;
-        margin-left: 14vw;
-        margin-right: 2vw;
-        color: white;
+        margin-bottom: 0vh;
+        color: #FCCD27;
+        margin-top: -46vh;
     }
 }
 

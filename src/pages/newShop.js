@@ -16,10 +16,9 @@ function NewShop(props) {
   const [capteur, setCapteur] = useState(false);
   const [accessoires, setAccessoires] = useState(false);
   const [category, setCategory] = useState("carte de développement");
- 
-
-  console.log(laser)
-  return (
+ const [searched , setSearch] = useState([]);
+ const [empty , setEmpty] = useState([]);
+   return (
     <div style={{ overflowX: "hidden" }}>
       <Head type={"shop"} />
       <div className="inlineItems">
@@ -43,10 +42,10 @@ function NewShop(props) {
             category={category}
           />
         </div>
-        <Search />
+        <Search setEmpty={setEmpty} setSearch={setSearch} />
         <Sort />
       </div>
-      <Products  category={category} setId={props.setId} />
+      <Products empty={empty} search={searched} category={category} setId={props.setId} />
     </div>
   );
 }

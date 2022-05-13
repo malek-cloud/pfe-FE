@@ -1,4 +1,6 @@
 import "./details.css";
+import Snackbar from "@mui/material/Snackbar";
+import IconButton from '@mui/material/IconButton';
 import { Link, useParams } from "react-router-dom";
 import React from "react";
 import Product from "../product";
@@ -9,9 +11,12 @@ import { useState, useEffect } from "react";
 import Quantity from "../quantity";
 import {useBasketUpdate} from "../../context/basketContext"
 import { useCardUpdate } from "../../context/cardContext";
+import { useSnackBarMessage } from "../../context/cardContext";
 
 function Details(props) {
   const updateCard = useCardUpdate();
+  const [state, setState] = useState(false);
+  const snackMessage = useSnackBarMessage();
   
   const { id } = useParams()
   const [product, setProduct] = useState();
@@ -37,12 +42,18 @@ function Details(props) {
     });
   }, []);
   function addToPanel() {
-    updateBasket(quantity);
-    updateCard(product);
+    updateBasket(quantity); //add quantity to basket in basket context
+    updateCard(product, quantity)
+    setState(true)
+  
   }
+  const handleClose = () => {
+    setState(false);
+  };
   const [quantity, setQuantity] = useState(1);
   return (
-    <div className="detailProductPage">
+   <div>
+      <div className="detailProductPage">
       <div className="row">
         <div className="col-md-4">
           <Link to="/shop" className="returnButton">
@@ -96,6 +107,15 @@ function Details(props) {
         <Product />
       </div>
     </div>
+    <Snackbar
+    anchorOrigin={{ vertical:'bottom', horizontal:'center' }}
+    open={state}
+    autoHideDuration={6000}
+    onClose={handleClose}
+    message= {<span>{snackMessage}</span>}
+    action = {[<IconButton key="close" aria-label="close" color="inherit" onClick={handleClose}>x</IconButton>]}
+  />
+   </div>
   );
 }
 export default Details;

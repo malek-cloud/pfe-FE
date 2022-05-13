@@ -1,4 +1,3 @@
-
 import Home from "./pages/home";
 import NewServices from "./pages/newServices";
 import AboutUs from "./pages/aboutus";
@@ -10,28 +9,26 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import { BasketProvider } from "./context/basketContext";
 import { CardItemsProvider } from "./context/cardContext";
-import { FormationCategoryProvider } from "./context/formationCategory";
 import Panier from "./pages/panier";
 import { useLogin } from "./hooks/loginHook";
 import SignPage from "./pages/signPage";
-import {AuthContext} from "./context/loginContext"
+import { AuthContext } from "./context/loginContext";
 export default function App() {
   const { token, login, logout, userId, userName } = useLogin();
   return (
-    <AuthContext.Provider
-      value={{
-        isLoggedIn: !!token,
-        token: token,
-        userId: userId,
-        userName : userName,
-        login: login,
-        logout: logout,
-      }}
-    >
-      <BasketProvider>
-        <CardItemsProvider>
-        <FormationCategoryProvider>
-          <BrowserRouter>
+    <BrowserRouter basename="/">
+      <AuthContext.Provider
+        value={{
+          isLoggedIn: !!token,
+          token: token,
+          userId: userId,
+          userName: userName,
+          login: login,
+          logout: logout,
+        }}
+      >
+        <BasketProvider>
+          <CardItemsProvider>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<NewServices />} />
@@ -43,13 +40,12 @@ export default function App() {
               <Route path="/account" element={<SignPage />} />
               <Route
                 path={`/shop/detail/produit/:id`}
-                element={<ProductDetail  />}
+                element={<ProductDetail />}
               />
             </Routes>
-          </BrowserRouter>
-        </FormationCategoryProvider>
-        </CardItemsProvider>
-      </BasketProvider>
-    </AuthContext.Provider>
+          </CardItemsProvider>
+        </BasketProvider>
+      </AuthContext.Provider>
+    </BrowserRouter>
   );
 }

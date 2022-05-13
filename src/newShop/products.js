@@ -2,39 +2,51 @@ import Product from "./product";
 import axios from "axios";
 import "../styles/header.css";
 import Snackbar from "@mui/material/Snackbar";
-import IconButton from '@mui/material/IconButton';
+import IconButton from "@mui/material/IconButton";
 import { useEffect, useState } from "react";
 import { useBasket } from "../context/basketContext";
+import { useSnackBarMessage, useBasketChange } from "../context/cardContext";
+
 import { Link } from "react-router-dom";
 function Products(props) {
   const [shop, setShop] = useState([]);
-  const [loader, setLoader] = useState([]);
+  const [loader, setLoader] = useState(false);
   const basket = useBasket();
+  const change = useBasketChange();
+  const snackMessage = useSnackBarMessage();
   const [state, setState] = useState(false);
- 
+  const [result, setResult] = useState(props.category);
+
   const handleClose = () => {
     setState(false);
   };
-  useEffect(()=>{
-    if(basket > 0){
+  useEffect(() => {
+    if (basket > 0 && change) {
       setState(true);
     }
+    axios({
+      method: "get",
+      url: process.env.REACT_APP_BACKEND_URL + "shop/Products",
+      headers: { "Content-Type": "multipart/form-data" },
+    }).then((resp) => {
+      setShop(resp.data.products);
+      setLoader(false);
+    });
+  }, [basket]);
+  useEffect(()=>{
+    if(!props.empty && props.search.length === 0){
+      setResult("Pas de produits correspondants" )
+    }else if(props.empty){
+  setResult(props.category);
+    }else{
+      setResult("Resultat de recherche : ")
+    }
+  },[props.search])
 
-  },[basket])
-    useEffect(() => {
-            axios({
-              method: "get",
-              url: process.env.REACT_APP_BACKEND_URL + "shop/Products",
-              headers: { "Content-Type": "multipart/form-data" },
-            }).then((resp) => {
-              setShop(resp.data.products);
-              setLoader(false);
-            });
-          }, []);
   return (
     <div>
       <div className="inlinePanel">
-        <div className="catName">{props.category} </div>
+        <div className="catName">{result}</div>
         <Link to="/panier" className="chariot">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +63,8 @@ function Products(props) {
         </Link>
       </div>
       <div className="products">
-          {loader ? (
+        {props.search.length ===0 ? (
+          loader ? (
             <div className="spinner-border" role="status"></div>
           ) : (
             shop.map((item) =>
@@ -68,18 +81,43 @@ function Products(props) {
                     process.env.REACT_APP_BACKEND_URL + `${item.images[0]}`
                   }
                 />
-              ) :""
-                )
-          )}
+              ) : (
+                ""
+              )
+            )
+          )
+        ) : (
+          props.search.map((item) => (
+            <Product
+              key={item._id}
+              id={item._id}
+              name={item.name}
+              item={item}
+              description={item.description}
+              price={item.price}
+              category={item.category}
+              image={process.env.REACT_APP_BACKEND_URL + `${item.images[0]}`}
+            />
+          ))
+        )}
       </div>
       <Snackbar
-            anchorOrigin={{ vertical:'bottom', horizontal:'center' }}
-            open={state}
-            autoHideDuration={6000}
-            onClose={handleClose}
-            message= {<span>Produit Ajouter Au Panier Avec Succès</span>}
-            action = {[<IconButton key="close" aria-label="close" color="inherit" onClick={handleClose}>x</IconButton>]}
-          />
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        open={state}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={<span>{snackMessage}</span>}
+        action={[
+          <IconButton
+            key="close"
+            aria-label="close"
+            color="inherit"
+            onClick={handleClose}
+          >
+            x
+          </IconButton>,
+        ]}
+      />
     </div>
   );
 }

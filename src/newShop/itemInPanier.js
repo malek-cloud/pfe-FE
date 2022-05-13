@@ -1,15 +1,19 @@
 import Quantity from "./quantity";
-import React from "react";
+import React, {useState} from "react";
 import { useDeleteItem } from "../context/cardContext";
 
 function ItemInPanier(props) {
   const deleteItem = useDeleteItem();
 
+  const [quantity, setQuantity] = useState(props.element.quantity);
+
   function del() {
     deleteItem(props.element);
   }
+
+
   return (
-    <div onClick={del} className={"produitPanier"}>
+    <div  className={"produitPanier"}>
       <img
         className="imageProduitPanier"
         src="/images/kitIOT.png"
@@ -17,12 +21,12 @@ function ItemInPanier(props) {
       />
       <div className="donneeProduitPanier">
         <div className="titreProduitPanier"> {props.element && props.element.name}</div>
-        <div className="prixProduitPanier">{props.element && props.element.price} DT</div>
+        <div className="prixProduitPanier">{props.element && props.element.price} DT x {quantity} = {props.element && props.element.price*quantity} DT</div>
       </div>
       <div className="quantiteProduitPanier">
-        <Quantity quantity={"1"} />
+        <Quantity quantity={quantity} setQuantity={setQuantity} inPanier={true} item={props.element} />
       </div>
-      <div className="deleteProductPanier">
+      <div className="deleteProductPanier" onClick={del}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"

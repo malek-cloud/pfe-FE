@@ -1,4 +1,5 @@
 import "../styles/header.css";
+import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import {useContext} from 'react'
 import {AuthContext} from '../context/loginContext'
@@ -13,6 +14,25 @@ function NavBar(props) {
     document.getElementsByClassName("link")[3].classList.toggle("active");
     document.getElementsByClassName("ground")[0].classList.toggle("active");
   }
+  const [windowDimenion, detectHW] = useState({
+    winWidth: window.innerWidth,
+    winHeight: window.innerHeight,
+  });
+
+  const detectSize = () => {
+    detectHW({
+      winWidth: window.innerWidth,
+      winHeight: window.innerHeight,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", detectSize);
+    console.log(windowDimenion.winWidth);
+    return () => {
+      window.removeEventListener("resize", detectSize);
+    };
+  }, [windowDimenion]);
   return (
     <div>
       <nav id="navBar">
@@ -94,7 +114,7 @@ function NavBar(props) {
               style={{
                 color: props.type === "panier" ? "#FCCD27" : "white",
                 fontWeight: props.type === "panier" ? "bold" : "300",
-                marginLeft : "8vw",
+                marginLeft : windowDimenion.winWidth > 700 ?  "8vw" : "-60vw",
                 textDecoration: props.type === "panier" ? "underline" : "none",
               }}
             >

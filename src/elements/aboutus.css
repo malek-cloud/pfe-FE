@@ -24,7 +24,6 @@
 }
 
 .video {
-    border: 2px solid black;
     margin-top: 20px;
     border-radius: 20px;
 }
@@ -71,7 +70,6 @@
         width: 75vw;
     }
     .video {
-        border: 2px solid black;
         margin-top: 20px;
         border-radius: 20px;
         margin: 0px 30px;

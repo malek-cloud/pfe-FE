@@ -22,7 +22,7 @@ function AboutUs() {
               <source src="videos/motivation.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
          </video> */}
-        <img src="images/makerskillsuplogo.jpg" alt="" className="videoIn" />
+        <img src="/images/makerskillsuplogo.jpg" alt="" className="videoIn" />
       </div>
     </div>
   );

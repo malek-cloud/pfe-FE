@@ -6,6 +6,7 @@ function OrderInfo() {
   function payWithCard(){
     setCard(true)
   }
+ 
   return (
     <div className="orderInfo">
       <div className="titleBetweenLines">

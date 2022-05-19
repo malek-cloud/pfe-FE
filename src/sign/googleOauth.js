@@ -1,8 +1,14 @@
 import React from "react";
 import GoogleLogin from "react-google-login";
+import {useEmailUpdate, useNameUpdate} from "../context/fcbGgle"
 function GoogleOauth() {
+  const getEmail = useEmailUpdate();
+  const getName = useNameUpdate();
   const responseGoogle = (response) => {
-    console.log(response.profileObj);
+    getEmail(response.profileObj.email)
+    getName(response.profileObj.name)
+    
+
   };
   return (
     <div>

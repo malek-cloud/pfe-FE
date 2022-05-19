@@ -3,7 +3,10 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import {useContext} from 'react'
 import {AuthContext} from '../context/loginContext'
+import {useName, useNameUpdate} from '../context/fcbGgle'
 function NavBar(props) {
+  const name = useName();
+  const updateName = useNameUpdate();
   const auth = useContext(AuthContext);
   function toggle() {
     document.getElementsByClassName("links")[0].classList.toggle("active");
@@ -18,7 +21,12 @@ function NavBar(props) {
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
   });
-
+const [deconnectDrop, setDeconnectDrop]=useState(false);
+const [connection, setConnection] = useState("Se Connecter");
+const drop = ()=>{
+/*   if(auth.isLoggedIn){setDeconnectDrop(!deconnectDrop)} */
+if(connection !=="Se Connecter"){setDeconnectDrop(!deconnectDrop)}
+}
   const detectSize = () => {
     detectHW({
       winWidth: window.innerWidth,
@@ -27,12 +35,19 @@ function NavBar(props) {
   };
 
   useEffect(() => {
+    if(name!==""){
+      setConnection( "Bonjour " + name.split(/[, ]+/)[0])
+    }else if(auth.isLoggedIn && auth.userName ){
+      setConnection("Bonjour "+ auth.userName)
+    }else if(name===""){
+      setConnection("Se Connecter")
+    }
     window.addEventListener("resize", detectSize);
-    console.log(windowDimenion.winWidth);
+  
     return () => {
       window.removeEventListener("resize", detectSize);
     };
-  }, [windowDimenion]);
+  }, [windowDimenion, name]);
   return (
     <div>
       <nav id="navBar">
@@ -117,9 +132,12 @@ function NavBar(props) {
                 marginLeft : windowDimenion.winWidth > 700 ?  "8vw" : "-60vw",
                 textDecoration: props.type === "panier" ? "underline" : "none",
               }}
+              onClick={drop}
             >
-              {auth.isLoggedIn && auth.userName ? "Bonjour, " + auth.userName : "Se Connecter"}
+              {connection}
+              {/* {auth.isLoggedIn && auth.userName ? "Bonjour, " + auth.userName : "Se Connecter"} */}
             </Link>
+            {deconnectDrop? <div className="dropDeconnect" onClick={()=>{updateName(""); auth.logout(); setDeconnectDrop(false); }}> Se déconnecter</div> : <div></div>}
           </div>
         </div>
         

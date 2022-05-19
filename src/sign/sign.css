@@ -5,6 +5,27 @@
         justify-content: center;
     }
     
+    .alert {
+        position: relative;
+        top: -36vh;
+        margin-left: 5vw;
+        background-color: rgba(179, 6, 6, 0.651);
+        font-weight: 600;
+        font-size: 16px;
+        color: white;
+        padding: 52px 16px;
+        transition: 0.5s;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+        -webkit-transition: 0.5s;
+        -moz-transition: 0.5s;
+        -ms-transition: 0.5s;
+        -o-transition: 0.5s;
+    }
+    
     .boxSign {
         margin-top: 23vh;
         background-color: white;

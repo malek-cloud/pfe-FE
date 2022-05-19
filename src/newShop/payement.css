@@ -1,0 +1,57 @@
+.succes {
+    font-size: 40px;
+    font-weight: 800;
+    color: rgb(15, 102, 27);
+    padding: 8vh;
+    margin-top: 10vh;
+    margin-left: 40%;
+    margin-bottom: 10vh;
+    text-align: center;
+    width: fit-content;
+    border-radius: 50%;
+    border-top: 4px solid green;
+    border-right: 4px solid green;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.explication {
+    font-size: 24px;
+    font-weight: 600;
+    color: black;
+    margin: 20px;
+}
+
+.explicationfail {
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    margin: 20px;
+}
+
+.thanks {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(68, 7, 63);
+    padding: 2vh;
+    margin-left: 36%;
+    margin-top: 12vh;
+    text-align: center;
+    width: fit-content;
+    border: 5px solid black;
+}
+
+.fail {
+    font-size: 40px;
+    font-weight: 800;
+    color: red;
+    padding: 4vh;
+    margin-top: 10vh;
+}
+
+.echecIcon {
+    font-size: 70px;
+    margin-bottom: 5vh;
+}

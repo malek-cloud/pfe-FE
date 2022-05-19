@@ -52,7 +52,7 @@
     text-align: start;
     display: flex;
     justify-content: start;
-    width: 21vw;
+    width: 22vw;
     align-items: flex-start;
     margin-bottom: 2vh;
     padding: 1vh 1.4vw;
@@ -68,10 +68,11 @@
 .labelDesc {
     font-weight: 600;
     color: black;
+    margin-left: -0.5vw;
 }
 
 .actualInfoValue {
-    margin-left: 2vw;
+    margin-left: 1vw;
 }
 
 .infoBloc {

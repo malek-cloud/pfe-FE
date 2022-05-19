@@ -8,7 +8,8 @@ function SignIn(props) {
   const auth = useContext(AuthContext);
   const email = useRef();
   const [load, setLoad] = useState(false);
-  const password = useRef()
+  const [alert, setAlert] = useState("");
+  const password = useRef();
   const signIn = async () => {
     console.log(email + " hedha el email");
     try {
@@ -21,11 +22,22 @@ function SignIn(props) {
       console.log(data.status);
       console.log(data.data);
       if (data.status === 200) {
-        auth.login(data.data.client._id, data.data.token, data.data.expiryDate, data.data.client.prenom);
+        auth.login(
+          data.data.client._id,
+          data.data.token,
+          data.data.expiryDate,
+          data.data.client.prenom
+        );
 
         setLoad(false);
       }
     } catch (err) {
+      setLoad(false);
+      setAlert("email ou mot de passe incorrect");
+     
+        setTimeout(() => {
+          setAlert("");
+        }, 3000);
       console.log(err + " hedhy el erreur");
     }
   };
@@ -60,15 +72,18 @@ function SignIn(props) {
       </div>
 
       {load ? (
-        <div className="d-flex justify-content-center" style={{marginTop  : "16px",  marginLeft : "7vw" , marginBottom : "16px"}}>
-          <div className="spinner-border" role="status">
-          </div>
+        <div
+          className="d-flex justify-content-center"
+          style={{ marginTop: "16px", marginLeft: "7vw", marginBottom: "16px" }}
+        >
+          <div className="spinner-border" role="status"></div>
         </div>
       ) : (
         <div className="logInButton" onClick={signIn}>
           Se Connecter
         </div>
       )}
+    
       <div className="inscri">
         <div className="inscriQuestion">
           Vous n'avez pas encore un compte ?{" "}
@@ -77,6 +92,7 @@ function SignIn(props) {
           Créer un compte
         </div>
       </div>
+      {alert==="" ? <div></div> : <div className="alert">{alert}</div> }
     </div>
   );
 }

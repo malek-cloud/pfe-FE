@@ -1,7 +1,30 @@
 import React from 'react'
 import "./order.css"
-
+import {useContext, useEffect, useState} from 'react'
+import axios from "axios"
+import {AuthContext} from '../context/loginContext'
+import {totalContext} from '../context/cardContext'
+import {useEmail, useName} from '../context/fcbGgle'
 function PersoInfo() {
+const [client, setClient] = useState()
+const email = useEmail();
+const name = useName();
+      const auth = useContext(AuthContext);
+      const price = useContext(totalContext);
+useEffect( ()=>{
+            if(auth.isLoggedIn){
+                  const fetch = async ()=>{
+                        console.log( "before user id : " + auth.userId)
+                        const resp =  await   axios.get(`http://localhost:5000/users/client/${auth.userId}`)
+                        console.log(resp)
+                        console.log("after  "+auth.userId)
+                        setClient(resp.data.client)
+                  }
+                  fetch()
+            }
+           
+            },[])
+
   return (
     <div >
           <div className='persoInfo'>
@@ -15,25 +38,25 @@ function PersoInfo() {
 
                 <div className="iTemInInfoBloc">
                       <div className="labelDesc">Prénom : </div>
-                      <div className="actualInfoValue"> Haythem</div>
+                      <div className="actualInfoValue"> {client && client.prenom ? client.prenom  : name.split(/[, ]+/)[0]}</div>
                 </div>
                 <div className="iTemInInfoBloc">
                       <div className="labelDesc">Nom : </div>
-                      <div className="actualInfoValue"> Daboussi</div>
+                      <div className="actualInfoValue"> {client && client.nom ? client.nom  : name.split(/[, ]+/)[1]}</div>
                 </div>
                 <div className="iTemInInfoBloc">
                       <div className="labelDesc">Email : </div>
-                      <div className="actualInfoValue"> Haythem@test.com</div>
+                      <div className="actualInfoValue">  {client && client.email ? client.email  : email}</div>
                 </div>
                 <div className="iTemInInfoBloc">
                       <div className="labelDesc">Téléphone : </div>
-                      <div className="actualInfoValue"> 23568956</div>
+                      <div className="actualInfoValue"> {client && client.phone ? client.phone  : "Load phone number..."}</div>
                 </div>
           </div>
     </div>
     <div className="totalOfOrder">
           <div className="passiveTotal">Totale de votre Commande :</div>
-          <div className="theTotalPrice">56DT</div>
+          <div className="theTotalPrice">{price + 6}DT</div>
     </div>
     </div>
   )

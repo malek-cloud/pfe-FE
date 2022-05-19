@@ -18,19 +18,10 @@ export function BasketProvider({ children }) {
   function addToBasket(e) {
     setBasketnum(basketnum + e);
 
-/* let i = 0;
-    items && items.forEach((ele)=>{
-      i = i + ele.quantity
-    })
-    setBasketnum(i) */
 }
   function removeFromBasket(e) {
     setBasketnum(basketnum - e);
-  /*  let i = 0;
-    items && items.forEach((ele)=>{
-      i = i + ele.quantity
-    })
-    setBasketnum(i) */
+ 
   }
   return (
     <basketContext.Provider value={basketnum}>

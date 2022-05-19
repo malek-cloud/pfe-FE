@@ -8,8 +8,11 @@ import ProductDetail from "./pages/productShopDetail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useState } from "react";
 import { BasketProvider } from "./context/basketContext";
+import { FcbggleProvider } from "./context/fcbGgle";
 import { CardItemsProvider } from "./context/cardContext";
 import Panier from "./pages/panier";
+import Succespay from "./newShop/succespay";
+import Failpay from "./newShop/failpay";
 import { useLogin } from "./hooks/loginHook";
 import SignPage from "./pages/signPage";
 import { AuthContext } from "./context/loginContext";
@@ -29,6 +32,7 @@ export default function App() {
       >
         <BasketProvider>
           <CardItemsProvider>
+            <FcbggleProvider>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<NewServices />} />
@@ -37,12 +41,15 @@ export default function App() {
               <Route path="/learn" element={<Education />} />
               <Route path="/contact-us" element={<ContactUs />} />
               <Route path="/panier" element={<Panier />} />
+              <Route path="/succes" element={<Succespay />} />
+              <Route path="/fail" element={<Failpay />} />
               <Route path="/account" element={<SignPage />} />
               <Route
                 path={`/shop/detail/produit/:id`}
                 element={<ProductDetail />}
               />
             </Routes>
+            </FcbggleProvider>
           </CardItemsProvider>
         </BasketProvider>
       </AuthContext.Provider>

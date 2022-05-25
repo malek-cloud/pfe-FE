@@ -17,6 +17,7 @@ function NavBar(props) {
     document.getElementsByClassName("link")[3].classList.toggle("active");
     document.getElementsByClassName("ground")[0].classList.toggle("active");
   }
+
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
@@ -25,7 +26,7 @@ const [deconnectDrop, setDeconnectDrop]=useState(false);
 const [connection, setConnection] = useState("Se Connecter");
 const drop = ()=>{
 /*   if(auth.isLoggedIn){setDeconnectDrop(!deconnectDrop)} */
-if(connection !=="Se Connecter"){setDeconnectDrop(!deconnectDrop)}
+if(connection !=="Sign In"){setDeconnectDrop(!deconnectDrop)}
 }
   const detectSize = () => {
     detectHW({
@@ -35,12 +36,12 @@ if(connection !=="Se Connecter"){setDeconnectDrop(!deconnectDrop)}
   };
 
   useEffect(() => {
-    if(name!==""){
-      setConnection( "Bonjour " + name.split(/[, ]+/)[0])
+    if(name!=="" && !auth.isLoggedIn){
+      setConnection( "Hello " + name.split(/[, ]+/)[0])
     }else if(auth.isLoggedIn && auth.userName ){
-      setConnection("Bonjour "+ auth.userName)
-    }else if(name===""){
-      setConnection("Se Connecter")
+      setConnection("Hello "+ auth.userName)
+    }else if(name==="" ){
+      setConnection("Sign In")
     }
     window.addEventListener("resize", detectSize);
   

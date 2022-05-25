@@ -5,6 +5,7 @@ import CarouselServices from "../elements/carouselServices";
 import CarouselProject from "../elements/carouselProjects";
 import Advantage from "../elements/advantages";
 import AboutUs from "../elements/aboutus";
+import Afficheevent from "../events/afficheevent";
 function Stomach() {
   return (
     <section>
@@ -18,7 +19,7 @@ function Stomach() {
 
       <div className="services">
         <AboutUs />
-        
+        <Afficheevent/>
         <CarouselField />
         <CarouselServices />
         <CarouselProject/>

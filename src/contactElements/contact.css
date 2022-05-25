@@ -10,6 +10,10 @@
     box-shadow: 5px 5px 10px rgb(63, 56, 56);
 }
 
+.iconcontact {
+    margin-top: 20px;
+}
+
 .contacttext {
     display: flex;
     flex-direction: column;

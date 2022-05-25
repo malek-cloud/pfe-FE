@@ -64,7 +64,7 @@ function Details(props) {
                 marginRight: "5px",
               }}
             />
-            <span>Retour</span>
+            <span>Return</span>
           </Link>
           { product && <img
             className="imageProductDetail"
@@ -87,11 +87,11 @@ function Details(props) {
               </div>
               <div className="totalDetail">
                 <div className="totalPriceD">
-                  Prix total : {product && product.price * quantity + "DT"}
+                  Total Price : {product && product.price * quantity + "DT"}
                 </div>
               </div>
             </div>
-              <div className="ajoutPanier" onClick={addToPanel}>Ajouter au panier</div>
+              <div className="ajoutPanier" onClick={addToPanel}>Add to Basket</div>
             
           </div>
         </div>

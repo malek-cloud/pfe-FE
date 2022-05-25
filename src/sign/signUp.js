@@ -15,7 +15,7 @@ function SignUp(props) {
     try {
       setLoad(true);
       const data = await axios.post(
-        "http://localhost:5000/users/createClient",
+        process.env.REACT_APP_BACKEND_URL +"users/createClient",
         {
           nom: nom.current.value,
           prenom: prenom.current.value,
@@ -36,34 +36,34 @@ function SignUp(props) {
   };
   return (
     <div className="loginComponent">
-      <div className="login1">Créer un compte</div>
+      <div className="login1">Create an account</div>
       <div className="inlineButtons">
         <FacebookAuth />
         <GoogleOauth />
       </div>
       <div className="loginInputinline">
         <div className="inputSpace">
-          <div className="inputLabel">Prénom</div>
+          <div className="inputLabel">Fist Name</div>
           <input
             autoComplete="on"
             ref={prenom}
             className="inputField1"
             type="text"
-            placeholder="prénom.."
+            placeholder="first name.."
           />
         </div>
         <div className="inputSpace">
-          <div className="inputLabel">Nom</div>
+          <div className="inputLabel">Last Name</div>
           <input
             autoComplete="on"
             ref={nom}
             className="inputField1"
             type="text"
-            placeholder="Nom.."
+            placeholder="last name.."
           />
         </div>
         <div className="inputSpace">
-          <div className="inputLabel">Téléphone</div>
+          <div className="inputLabel">Phone</div>
           <input
             autoComplete="on"
             ref={phone}
@@ -85,13 +85,13 @@ function SignUp(props) {
           />
         </div>
         <div className="inputSpace">
-          <div className="inputLabel">Mot de passe</div>
+          <div className="inputLabel">Password</div>
           <input
             autoComplete="on"
             ref={password}
             className="inputField"
             type="password"
-            placeholder="mot de passe.."
+            placeholder="password.."
           />
         </div>
       </div>
@@ -100,14 +100,14 @@ function SignUp(props) {
         <div className="spinner-border" role="status">
         </div>
       </div> : <div className="logInButton1" onClick={signUp}>
-        Créer Votre Compte
+       Sign Up
       </div>
       }
 
       <div className="inscri" style={{ marginTop: "10px" }}>
-        <div className="inscriQuestion">Vous avez déja un compte ? </div>
+        <div className="inscriQuestion">Do you already have an account ? </div>
         <div className="inscriLink" onClick={props.log}>
-          Connectez-Vous
+          Sign In
         </div>
       </div>
     </div>

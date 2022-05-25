@@ -1,0 +1,180 @@
+.eventpage {
+    background-color: #FDCD25;
+    margin: 10vh 9vw 10vh 10vw;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding-bottom: 40px;
+}
+
+.soon {
+    font-size: 35px;
+    font-weight: 900;
+    text-align: start;
+    padding-top: 5vh;
+    margin-left: 5vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tuned {
+    font-size: 35px;
+    font-weight: 900;
+    padding-bottom: 4vh;
+    margin-right: 18vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.joinEventImage {
+    position: absolute;
+    height: 290px;
+    top: 219vh;
+    margin-left: 9vw;
+}
+
+.typeevent {
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 2vh;
+    text-align: start;
+    margin-left: 5vw;
+    margin-bottom: 10px;
+    padding-left: 1vw;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    padding-right: 1vw;
+    width: fit-content;
+    color: white;
+}
+
+.date {
+    font-weight: 600;
+    font-size: 17px;
+    text-align: start;
+    width: fit-content;
+    margin-left: 5vw;
+    border-bottom: 1px solid black;
+}
+
+.animatedDate {
+    display: flex;
+    margin-top: 7vh;
+    margin-left: 8.5vw;
+}
+
+.blocks {
+    display: flex;
+    margin: 0px 2vw;
+    text-align: center;
+}
+
+.block {
+    padding: 4vh 2.2vw;
+    background-color: #faf6d62f;
+    border-radius: 8px;
+    color: black;
+    font-size: 55px;
+    font-weight: 900;
+    text-align: center;
+    margin: 0px 10px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.what {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.intersted {
+    font-weight: 700;
+    text-align: start;
+    margin-left: 12vw;
+    margin-top: 5vh;
+    font-size: 18px;
+    padding-left: 2vw;
+    margin-left: 24vw;
+}
+
+.joinEvent {
+    margin-top: -5vh;
+    padding: 6px 30px;
+    background-color: rgb(61, 4, 54);
+    color: white;
+    font-size: 20px;
+    width: fit-content;
+    border-radius: 6px;
+    margin-left: 42vw;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    cursor: pointer;
+}
+
+.fillform {
+    margin-top: 18vh;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.partinline {
+    display: flex;
+    align-items: center;
+}
+
+.descrblock {
+    width: 40vw;
+    margin-left: 5vw;
+    text-align: start;
+}
+
+.descriptionTitle {
+    text-align: start;
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 2vh;
+    color: white;
+}
+
+.realdesc {
+    text-align: start;
+}
+
+.eventImage {
+    margin-left: 10vw;
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom: 5vh;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.formEvent {
+    margin-top: 10vh;
+    background-color: #fae986b7;
+    padding: 10px;
+    width: 20vw;
+    margin-left: 10vw;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.titreEvent {
+    font-weight: 600;
+}
+
+.textInput {
+    margin-left: 30px;
+}

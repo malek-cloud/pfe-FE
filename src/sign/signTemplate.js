@@ -19,7 +19,7 @@ function SignTemplate() {
             
           </div>
           <div className="signDescription">
-            Connectez-vous En quelques clics pour y acceder et acheter vos articles désirés
+          Login In just a few clicks to access our platform and buy your desired items
             </div>
         </div>
 

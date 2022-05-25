@@ -3,7 +3,7 @@ import "./payement.css"
 function Failpay() {
       useEffect(()=>{
             setTimeout(() => {
-                  window.location.replace("http://localhost:3000/panier")
+                  window.location.replace(process.env.REACT_APP_BACKEND_URL2 +"panier")
             }, 4000);
       },[])
   return (

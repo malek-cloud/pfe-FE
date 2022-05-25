@@ -3,7 +3,7 @@ import "./payement.css"
 function Succespay() {
       useEffect(()=>{
             setTimeout(() => {
-                  window.location.replace("http://localhost:3000/shop")
+                  window.location.replace(process.env.REACT_APP_BACKEND_URL2 +"shop")
             }, 4000);
       },[])
   return (

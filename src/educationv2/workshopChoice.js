@@ -14,12 +14,12 @@ function WorkshopChoice(props) {
   if (
     level ===
     [
-      "Systéme Embarqué",
+      "Embedded system",
       "Machines",
-      "Internet Des Objets",
-      "Intelligence Artificielle",
-      "Developpement IT",
-      "Robotique",
+      "Internet Of Things",
+      "Artificial intelligence",
+      "IT development",
+      "Robotics",
     ]
   ) {
         console.log(level)
@@ -32,14 +32,14 @@ function WorkshopChoice(props) {
         value={select}
       >
         <option value="vide"></option>
-        <option value="Internet Des Objets">Internet Des Objets</option>
-        <option value="Developpement IT">Developpement IT</option>
-        <option value="Systéme Embarqué">Systéme Embarqué</option>
-        <option value="Intelligence Artificielle">
-          intelligence artificielle
+        <option value="Internet Of Things">Internet Of Things</option>
+        <option value="IT development">IT development</option>
+        <option value="Embedded system">Embedded system</option>
+        <option value="Artificial intelligence">
+          Artificial intelligence
         </option>
         <option value="Machines">Machines</option>
-        <option value="Robotique">Robotique</option>
+        <option value="Robotics">Robotics</option>
       </select>
     );
   } else if (
@@ -150,7 +150,7 @@ function WorkshopChoice(props) {
       </select>
     );
   }
-  else if (level === ["RaspBerry PI Robotique", "STM 32", "ESP 32", "Arduino"]) {
+  else if (level === ["RaspBerry PI Robotics", "STM 32", "ESP 32", "Arduino"]) {
       return (
         <select
           name="categories"
@@ -160,7 +160,7 @@ function WorkshopChoice(props) {
           value={select}
         >
           <option value="vide"></option>
-          <option value="RaspBerry PI Robotique">RaspBerry PI Robotique</option>
+          <option value="RaspBerry PI Robotics">RaspBerry PI Robotics</option>
           <option value="STM 32">STM 32</option>
           <option value="ESP 32">ESP 32</option>
           <option value="Arduino">Arduino</option>

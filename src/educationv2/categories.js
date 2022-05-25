@@ -6,12 +6,12 @@ import { useCategoryUpdate } from "../context/formationCategory";
 function Categories(props) {
   const updateCat = useCategoryUpdate();
 
-  const [cat, setCat ] =useState("Systéme Embarqué")
+  const [cat, setCat ] =useState("Embedded system")
   const [subCateg, setSubCateg ] =useState([])
   function selectEmbarque(){
-    props.selectCategory("Systéme Embarqué");
-    updateCat("Systéme Embarqué");
-    setCat("Systéme Embarqué");
+    props.selectCategory("Embedded system");
+    updateCat("Embedded system");
+    setCat("Embedded system");
     setSubCateg(["Notions de Base","Linux","Electronique","C Embarqué"]);
     props.selectSubCateg(["Notions de Base","Linux","Electronique","C Embarqué"]);
     console.log("category file "+[...subCateg])
@@ -27,8 +27,8 @@ function Categories(props) {
 
   }
   function selectIOT(){
-    props.selectCategory("Internet Des Objets");
-    setCat("Internet Des Objets");
+    props.selectCategory("Internet Of Things");
+    setCat("Internet Of Things");
     setSubCateg(["Notions de Base","Conception","Gateways", "Big Data"]);
     props.selectSubCateg([...subCateg]);
     console.log("category file "+[...subCateg])
@@ -36,8 +36,8 @@ function Categories(props) {
 
   }
   function selectAI(){
-    props.selectCategory("Intelligence Artificielle");
-    setCat("Intelligence Artificielle");
+    props.selectCategory("Artificial intelligence");
+    setCat("Artificial intelligence");
     setSubCateg(["Machine Learning", "Deep Learning", "NLP", "Mathématiques"]);
     props.selectSubCateg([...subCateg]);
     console.log("category file "+[...subCateg])
@@ -45,19 +45,19 @@ function Categories(props) {
 
   }
   function selectDev(){
-    props.selectCategory("Developpement IT");
-    setCat("Developpement IT");
+    props.selectCategory("IT development");
+    setCat("IT development");
     setSubCateg(["Développement Web", "Développement Mobile", "DevOps", "Automation Tests"]);
     props.selectSubCateg([...subCateg]);
     console.log("category file "+[...subCateg])
 
 
   }  
-  function selectRobotique(){
-    setCat("Robotique");
+  function selectRobotics(){
+    setCat("Robotics");
     setSubCateg(["Notions de Base","Robot Arduino","Drones"]);
     props.selectSubCateg([...subCateg]);
-    props.selectCategory("Robotique");
+    props.selectCategory("Robotics");
     console.log("category file "+[...subCateg])
 
   }
@@ -65,9 +65,9 @@ function Categories(props) {
   return (
     <div className='categoryBlock'>
           <div className='categoryTitle' >Categories</div>
-          <div  className= {cat!=="Systéme Embarqué" ? "category" : "categorySelected"}  onClick={selectEmbarque}>Systéme Embarqué</div>
+          <div  className= {cat!=="Embedded system" ? "category" : "categorySelected"}  onClick={selectEmbarque}>Embedded system</div>
           
-          {cat==="Systéme Embarqué" ? <div className="subCategoryBlock">
+          {cat==="Embedded system" ? <div className="subCategoryBlock">
             <div className="subCategoryItem" onClick={()=>{props.selectCategory("Notions de Base")}}>➡ Notions de Base Embarqué</div>
             <div className="subCategoryItem" onClick={()=>{props.selectCategory("Linux")}}>➡ Linux</div>
             <div className="subCategoryItem" onClick={()=>{props.selectCategory("Electronique")}}>➡ Electronique</div>
@@ -81,29 +81,29 @@ function Categories(props) {
             <div className="subCategoryItem">➡ Routage CNC</div>
             <div className="subCategoryItem">➡ Fabrication PCB</div>
           </div> : <div></div>}
-          <div className= {cat!=="Internet Des Objets" ? "category" : "categorySelected"}  onClick={selectIOT}>Internet Des Objets</div>
-          {cat==="Internet Des Objets" ? <div className="subCategoryBlock">
+          <div className= {cat!=="Internet Of Things" ? "category" : "categorySelected"}  onClick={selectIOT}>Internet Of Things</div>
+          {cat==="Internet Of Things" ? <div className="subCategoryBlock">
             <div className="subCategoryItem">➡ Notions de Base IOT</div>
             <div className="subCategoryItem">➡ Conception</div>
             <div className="subCategoryItem">➡ Gateways</div>
             <div className="subCategoryItem">➡ Big Data</div>
           </div> : <div></div>}
-          <div className= {cat!=="Intelligence Artificielle" ? "category" : "categorySelected"}  onClick={selectAI}>Intelligence Artificielle</div>
-          {cat==="Intelligence Artificielle" ? <div className="subCategoryBlock">
+          <div className= {cat!=="Artificial intelligence" ? "category" : "categorySelected"}  onClick={selectAI}>Artificial intelligence</div>
+          {cat==="Artificial intelligence" ? <div className="subCategoryBlock">
             <div className="subCategoryItem">➡ Machine Learning</div>
             <div className="subCategoryItem">➡ Deep Learning</div>
             <div className="subCategoryItem">➡ NLP</div>
             <div className="subCategoryItem">➡ Mathématiques</div>
           </div> : <div></div>}
-          <div className= {cat!=="Developpement IT" ? "category" : "categorySelected"}  onClick={selectDev}>Developpement IT</div>
-          {cat==="Developpement IT" ? <div className="subCategoryBlock">
+          <div className= {cat!=="IT development" ? "category" : "categorySelected"}  onClick={selectDev}>IT development</div>
+          {cat==="IT development" ? <div className="subCategoryBlock">
             <div className="subCategoryItem">➡ Développement Web</div>
             <div className="subCategoryItem">➡ Développement Mobile</div>
             <div className="subCategoryItem">➡ DevOps</div>
             <div className="subCategoryItem">➡ Automation Tests</div>
           </div> : <div></div>}
-          <div className= {cat!=="Robotique" ? "category" : "categorySelected"}  onClick={selectRobotique}>Robotique</div>
-          {cat==="Robotique" ? <div className="subCategoryBlock">
+          <div className= {cat!=="Robotics" ? "category" : "categorySelected"}  onClick={selectRobotics}>Robotics</div>
+          {cat==="Robotics" ? <div className="subCategoryBlock">
           <div className="subCategoryItem">➡Arduino</div>
             <div className="subCategoryItem">➡Raspberry Pi</div>
             <div className="subCategoryItem">➡STM 32</div>

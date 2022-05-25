@@ -13,14 +13,14 @@ function MachineCarousel(props) {
       image: "url('images/30.jpeg')",
       title: "UltiMaker",
       description:
-        "UltiMaker  permet une utilisation fiable de la double extrusion sur des séries plus importantes.Avec des paramètres d'impression testés et prédéfinis, créez des prototypes fonctionnels, des outils de production et de solides pièces finales en polymères et matériaux composites avancés. L'Ultimaker S5 est également dotée d'un nivellement actif et avancé.Des capteurs de débit de filament et un écran tactile intuitif permettent de simplifier votre expérience d'impression 3D",
+        "UltiMaker enables reliable use of dual extrusion on larger runs. With tested and pre-defined print settings, create working prototypes, production tools, and strong final parts in advanced polymers and composite materials. The Ultimaker S5 also features active and advanced leveling. Filament flow sensors and an intuitive touchscreen help simplify your 3D printing experience.",
     },
     {
       caracteristique: "380mm x 420mm",
       image: "url('images/21.png')",
       title: "Mingda",
       description:
-        "L’imprimante 3D Mingda MD-666 Pro est une machine chinoise en caisson fermé qui propose un large volume d’impression : 600 x 600 x 600 mm. Livrée dans un caisson de protection en bois, cette grande imprimante s’adresse aux petits industriels et professionnels qui souhaitent fabriquer des objets en PLA, fibre de carbone, bois, cuivre, aluminium, filament flexible, etc. L’extrudeur Direct Drive de  la Mingda MD-666 Pro peut chauffer jusqu’à 275°C et le plateau chauffant (de 10 mm d’épaisseur) peut atteindre 110°C, mais la température de travail sera maintenue par le caisson fermé de la machine.",
+        "The Mingda MD-666 Pro 3D printer is a closed-box Chinese machine that offers a large print volume: 600 x 600 x 600 mm. Delivered in a protective wooden case, this large printer is aimed at small industrialists and professionals who wish to manufacture objects in PLA, carbon fiber, wood, copper, aluminum, flexible filament, etc. The Mingda MD-666 Pro's Direct Drive extruder can heat up to 275°C and the heating bed (10 mm thick) can reach 110°C, but the working temperature will be maintained by the closed housing of the machine.",
     },
     {
       caracteristique: "280mm x 360mm",
@@ -28,7 +28,7 @@ function MachineCarousel(props) {
       image: "url('images/22.jpg')",
       title: "Prusa3d",
       description:
-        "Avec 34 nouvelles imprimantes 3D Original Prusa CoreXY, des mécanismes de collecte automatique, et une interface à écran tactile simple à utiliser, l'AFS est la solution parfaite pour les grandes et les petites entreprises.",
+        "With 34 new Original Prusa CoreXY 3D printers, automatic collection mechanisms, and an easy-to-use touchscreen interface, the AFS is the perfect solution for businesses large and small.",
     },
   ];
   const laser = {
@@ -36,7 +36,7 @@ function MachineCarousel(props) {
     image: "url('images/32.jpg')",
     title: "LaserMaker",
     description:
-      "UltiMaker  permet une utilisation fiable de la double extrusion sur des séries plus importantes.Avec des paramètres d'impression testés et prédéfinis, créez des prototypes fonctionnels, des outils de production et de solides pièces finales en polymères et matériaux composites avancés. L'Ultimaker S5 est également dotée d'un nivellement actif et avancé.Des capteurs de débit de filament et un écran tactile intuitif permettent de simplifier votre expérience d'impression 3D",
+      "UltiMaker enables reliable use of dual extrusion on larger runs. With tested and pre-defined print settings, create working prototypes, production tools, and strong final parts in advanced polymers and composite materials. The Ultimaker S5 also features active and advanced leveling. Filament flow sensors and an intuitive touchscreen help simplify your 3D printing experience.",
   };
 
   const fabrication = {
@@ -44,7 +44,7 @@ function MachineCarousel(props) {
     image: "url('images/31.png')",
     title: "UltiMaker",
     description:
-      "UltiMaker  permet une utilisation fiable de la double extrusion sur des séries plus importantes.Avec des paramètres d'impression testés et prédéfinis, créez des prototypes fonctionnels, des outils de production et de solides pièces finales en polymères et matériaux composites avancés. L'Ultimaker S5 est également dotée d'un nivellement actif et avancé.Des capteurs de débit de filament et un écran tactile intuitif permettent de simplifier votre expérience d'impression 3D",
+      "UltiMaker enables reliable use of dual extrusion on larger runs. With tested and pre-defined print settings, create working prototypes, production tools, and strong final parts in advanced polymers and composite materials. The Ultimaker S5 also features active and advanced leveling. Filament flow sensors and an intuitive touchscreen help simplify your printing experience 3D",
   };
 
   const routage = {
@@ -52,13 +52,13 @@ function MachineCarousel(props) {
     image: "url('images/35.png')",
     title: "UltiMaker",
     description:
-      "UltiMaker  permet une utilisation fiable de la double extrusion sur des séries plus importantes.Avec des paramètres d'impression testés et prédéfinis, créez des prototypes fonctionnels, des outils de production et de solides pièces finales en polymères et matériaux composites avancés. L'Ultimaker S5 est également dotée d'un nivellement actif et avancé.Des capteurs de débit de filament et un écran tactile intuitif permettent de simplifier votre expérience d'impression 3D",
+      "UltiMaker enables reliable use of dual extrusion on larger runs. With tested and pre-defined print settings, create working prototypes, production tools, and strong final parts in advanced polymers and composite materials. The Ultimaker S5 also features active and advanced leveling. Filament flow sensors and an intuitive touchscreen help simplify your printing experience 3D",
   };
 
  
   return (
     <div>
-      {props.service === "Impression 3D" ? (
+      {props.service === "3D Printing" ? (
         <Carousel activeIndex={index} onSelect={handleSelect} controls="true">
           {impression.map((machine, i) => (
             <Carousel.Item key={i}>
@@ -74,7 +74,7 @@ function MachineCarousel(props) {
       ) : (
         <div></div>
       )}
-      {props.service === "Découpe Laser" ? (
+      {props.service === "Laser cutting" ? (
         <MachineService
           image={laser.image}
           titlemachine={laser.title}
@@ -84,7 +84,7 @@ function MachineCarousel(props) {
       ) : (
         <div></div>
       )}
-        {props.service === "Fabrication PCB"? (
+        {props.service === "PCB Fabrication"? (
         <MachineService
           image={fabrication.image}
           titlemachine={fabrication.title}
@@ -94,7 +94,7 @@ function MachineCarousel(props) {
       ) : (
         <div></div>
       )}
-        {props.service === "Routage CNC" ? (
+        {props.service === "CNC Routing" ? (
         <MachineService
           image={routage.image}
           titlemachine={routage.title}

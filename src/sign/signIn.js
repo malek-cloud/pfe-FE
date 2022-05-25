@@ -43,7 +43,7 @@ function SignIn(props) {
   };
   return (
     <div className="loginComponent">
-      <div className="login">Se Connecter</div>
+      <div className="login">Sign In</div>
       <div className="inlineButtons">
         <FacebookAuth />
         <GoogleOauth />
@@ -60,13 +60,13 @@ function SignIn(props) {
           />
         </div>
         <div className="emailSpace">
-          <div className="emailLabel">Mot de passe</div>
+          <div className="emailLabel">Password</div>
           <input
             autoComplete="on"
             ref={password}
             className="emailInput"
             type="password"
-            placeholder="mot de passe.."
+            placeholder="password.."
           />
         </div>
       </div>
@@ -80,16 +80,16 @@ function SignIn(props) {
         </div>
       ) : (
         <div className="logInButton" onClick={signIn}>
-          Se Connecter
+          Sign In
         </div>
       )}
     
       <div className="inscri">
         <div className="inscriQuestion">
-          Vous n'avez pas encore un compte ?{" "}
+          Don't you have an account yet ?{" "}
         </div>
         <div className="inscriLink" onClick={props.log}>
-          Créer un compte
+          Create one
         </div>
       </div>
       {alert==="" ? <div></div> : <div className="alert">{alert}</div> }

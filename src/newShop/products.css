@@ -130,10 +130,12 @@
         font-size: 18px;
         font-weight: 700;
         margin-right: 16px;
-        width: 100px;
+        width: 120px;
+        margin-top: 20px;
     }
     
     .totalPrice {
+        margin-top: 22px;
         width: 80px;
         text-decoration: underline;
     }

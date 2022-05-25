@@ -31,7 +31,7 @@ function Quantity(props) {
   return (
     <div>
       <div className="adjustQuantity">
-        <div className="quant">Quantité : </div>
+        <div className="quant">Quantity : </div>
         <div className="quantityPanier">{props.quantity}</div>
         <div className="updown">
           <div className="up" onClick={upquantity}>

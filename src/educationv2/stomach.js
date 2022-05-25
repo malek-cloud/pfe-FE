@@ -6,7 +6,7 @@ import DetailedFormation from "./detailedFormation";
 import { useState } from "react";
 import "./education.css";
 function Stomach() {
-  const [category, setCategory] = useState("Systéme Embarqué");
+  const [category, setCategory] = useState("Embedded system");
   const [formation, setFormation] = useState("");
   const [subCategory, setSubCategory] = useState([]);
   function getCategory(value) {

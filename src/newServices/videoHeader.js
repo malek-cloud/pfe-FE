@@ -64,17 +64,16 @@ function Services() {
             <div className="content-text">
               
               <p ref={texts} className="animate-text">
-                <span>Impression 3D</span>
-                <span>Découpe Laser</span>
-                <span>Fabrication PCB</span>
-
-                <span>Routage CNC</span>
+                <span>3D Printing</span>
+                <span>Laser Cutting</span>
+                <span>PCB Fabrication</span>
+                <span>CNC Routing</span>
               </p>
             </div>
           </div>
         </div>
        <a href="#newServicesContainer">
-         <h5 className="moredetails">Plus De Détails</h5>
+         <h5 className="moredetails">More Details</h5>
          <img className="arrowdetail" src="/images/arrowdowndetail.png" alt="" />
        </a>
       </section>

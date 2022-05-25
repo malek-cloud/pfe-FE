@@ -9,7 +9,7 @@ function PanierPlein() {
 
   return (
     <div className="panierCenter">
-      <div className="titrePanierPlein">Récapitulatif de votre panier</div>
+      <div className="titrePanierPlein">Summary of your basket</div>
       <div className="panierPlein">
         <div>
         <div className="productsPanierListe">
@@ -21,18 +21,18 @@ function PanierPlein() {
 
         <Link to="/shop" className="goBackToShop" style={{marginLeft : "40px"}}>
           <div className="goBackArrow">&lt;</div>
-          <div className="continueAchat">Continuez vos achats</div>
+          <div className="continueAchat">Continue shopping</div>
         </Link>
         </div>
       
       <div className="rightSidePanier">
         <div className="Commande">
           <div className="totalProduitPrix">
-            <div className="totalProduit">Articles</div>
+            <div className="totalProduit">Items Price</div>
             <div className="totalPrixProduit">{total} DT</div>
           </div>
           <div className="totalProduitPrix">
-            <div className="totalProduit">Livraison</div>
+            <div className="totalProduit">Delivery</div>
             <div className="totalPrixProduit">6DT</div>
           </div>
           <div className="seperateLineTotal"> </div>
@@ -41,19 +41,19 @@ function PanierPlein() {
             <div className="totalPrix">{total + 6} DT</div>
           </div>
           <Link to="/account" className="validateCommande">
-            Valider votre commande
+          Validate your order
           </Link>
         </div>
         <div className="questionCommande">
-          Une question ? Contactez-nous au 25 801 660
+        A question ? Contact us on 25 801 660
         </div>
         <div className="avantageCommande">
           <div className="livraison">
-            💸 Frais de livraison depend du ville (min 3DT)
+            💸 Delivery costs depends on the city (min 3DT)
           </div>
-          <div className="livraison">🚐 Livraison sur toute la Tunisie</div>
+          <div className="livraison">🚐 Delivery all over Tunisia</div>
           <div className="livraison">
-            💳 Paiement sur place ou par carte bancaire
+            💳 Payment on site or by credit card
           </div>
         </div>
       </div>

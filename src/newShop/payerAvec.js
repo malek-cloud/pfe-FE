@@ -5,7 +5,7 @@ import  { Redirect } from 'react-router-dom'
 function PayerAvec() {
   const [payUrl, setPayUrl] = useState("")
   const flouci = async () => {
-    const url = "http://localhost:5000/pay";
+    const url = process.env.REACT_APP_BACKEND_URL +"pay";
     try {
       const resp = await axios.get(url);
   console.log("this is the result"  + resp.data.link.link);

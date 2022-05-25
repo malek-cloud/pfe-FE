@@ -13,7 +13,7 @@ function Formulaire(props) {
   const [profState, setProfState] = useState('');
   const [etabState, setEtabState] = useState('');
   const [numState, setNumState] = useState('');
-  const [modeState, setModeState] = useState('Présentiel');
+  const [modeState, setModeState] = useState('In our space');
   const [certificatState, setCertificatState] = useState('');
   const [message, setMessage] = useState('');
   const name = useRef();
@@ -27,7 +27,7 @@ function Formulaire(props) {
   
 
 
-  const url = "http://localhost:5000/activities/joinWorkshop";
+  const url = process.env.REACT_APP_BACKEND_URL +"activities/joinWorkshop";
   function handleChange(event) {
     if (event) {
       setSelect(event.target.value);
@@ -81,15 +81,14 @@ function Formulaire(props) {
     <div>
       <div className="askForm">
         <div className="goalform">
-          Participer / Organisez cette formaion ou une autre dans votre
-          établissement
+        Participate / Organize this training or another in your establishment
         </div>
         <div className="horizSepLine"></div>
 
       
        <div className="textInput">
           <div className="labelInput">
-            Nom et Prénom : <b>*</b>
+            Full Name : <b>*</b>
           </div>
           <input
           value={nameState}
@@ -105,7 +104,7 @@ function Formulaire(props) {
         </div>
         <div className="textInput">
           <div className="labelInput">
-            Téléphone : <b>*</b>
+            Mobile Number : <b>*</b>
           </div>
           <input
           value={numState}
@@ -116,11 +115,11 @@ function Formulaire(props) {
             ref={numero}
             className="askformationinput"
             type="number"
-            placeholder="téléphone.."
+            placeholder="25447412.."
           />
         </div>
         <div className="textInput">
-          <div className="labelInput">Profession : </div>
+          <div className="labelInput">Job : </div>
           <input
           onChange={e=>{
             setProfState(e.target.value)
@@ -130,11 +129,11 @@ function Formulaire(props) {
             ref={profession}
             className="askformationinput"
             type="text"
-            placeholder="profession.."
+            placeholder="job.."
           />
         </div>
         <div className="textInput">
-          <div className="labelInput">Établissement : </div>
+          <div className="labelInput">College : </div>
           <input
           autoComplete="on"
           value={etabState}
@@ -144,7 +143,7 @@ function Formulaire(props) {
             ref={etablissement}
             className="askformationinput"
             type="text"
-            placeholder="entreprise / faculté.."
+            placeholder="entreprise / university.."
           />
         </div>
         <div className="textInput">
@@ -165,14 +164,24 @@ function Formulaire(props) {
           />
         </div>
 
-        <div className="selectform">
+        <div className="selectform" style={{marginLeft:"85px"}}>
           <label htmlFor="pet-select" className="lieuFormation">
             Workshop : <b>*</b>
           </label>
-          <WorkshopChoice />
+         {/*  <WorkshopChoice /> */}
+         <select
+            name="formations"
+            id="formations"
+            onChange={e=>{setModeState(e.target.value)}}
+            className="selection"
+            ref={mode}
+          >
+            <option value="In our space">Raspberry PI</option>
+            <option value="En ligne">En ligne</option>
+          </select>
         </div>
 
-        <div className="selectform">
+        <div className="selectform"  style={{marginLeft:"85px"}}>
           <label htmlFor="pet-select" className="lieuFormation">
             Mode : <b>*</b>
           </label>
@@ -184,11 +193,11 @@ function Formulaire(props) {
             className="selection"
             ref={mode}
           >
-            <option value="Présentiel">Présentiel</option>
-            <option value="En ligne">En ligne</option>
+            <option value="In our space">In our space</option>
+            <option value="En ligne">Online</option>
           </select>
         </div>
-        <div className="selectform">
+        <div className="selectform" style={{marginLeft:"85px"}}>
           <label htmlFor="pet-select" className="lieuFormation">
             Certification :
           </label>
@@ -212,8 +221,8 @@ function Formulaire(props) {
             <span className="sr-only">Loading...</span>
           </div>
         ) : (
-          <div className="submitAsk" onClick={submit}>
-            Rejoinez
+          <div className="submitAsk" onClick={submit} style={{marginLeft:"20px"}}>
+            Join
           </div>
         )}
     

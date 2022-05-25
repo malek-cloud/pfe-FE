@@ -2,7 +2,7 @@ import React from "react";
 function DetailedFormation(props) {
   function retour() {
     props.selectFormation("");
-    props.selectCategory("Systéme Embarqué")
+    props.selectCategory("Embedded system")
   }
   return (
     <div className="detailedFormation">
@@ -30,48 +30,48 @@ function DetailedFormation(props) {
         <div className="mobileCenter">
 
           <div className="workshopBenefits">
-            <div className="workshopbenefit">✔ Commencer à partir de zéro</div>
-            <div className="workshopbenefit">✔ Apprendre les notions</div>
+            <div className="workshopbenefit">✔ Start from zero</div>
+            <div className="workshopbenefit">✔ Learn the concepts</div>
             <div className="workshopbenefit">
-              ✔ Developper un projet IOT de zéro
+              ✔ Develop an IOT project from scratch
             </div>
             <div className="workshopbenefit">
-              ✔ Gagnez un certificat et mettez en valeur vos compétences
+              ✔ Earn a certificate and showcase your skills
             </div>
           </div>
-          <div className="participateButton"> S'inscrire Maintenant</div>
+          <div className="participateButton">Register Now</div>
         </div>
       </div>
 
       <div className="participateline">
         <div className="formationContent">
           <ul>
-            <div className="objectifFormation">Objectifs de la formation</div>
-            <div className="levelFormation">Niveau 1 : </div>
-            <li>Configurer, installer et prendre en main une Raspberry Pi</li>
-            <li>Tirer parti de Python pour exploiter la carte</li>
-            <div className="levelFormation">Niveau 2 : </div>
-            <li>Dialoguer avec des composants : leds, moteurs, caméra</li>
-            <li>Échanger des données au travers d'une liaison sére</li>
+            <div className="objectifFormation">Workshop goals</div>
+            <div className="levelFormation">Level 1 : </div>
+            <li>Configure, install and take control of a Raspberry Pi</li>
+            <li>Leverage Python to exploit the map</li>
+            <div className="levelFormation">Level 2 : </div>
+            <li>Dialog with components: leds, motors, camera</li>
+            <li>Exchanging data through a serial link</li>
           </ul>
         </div>
         <div className="tabledetail">
           <div className="rowTableDetail">
-            <b>💰 Prix : </b> 120DT
+            <b>💰 Price : </b> 120DT
           </div>
           <div className="rowTableDetail">
             <b>🕒 Duration : </b> 20H
           </div>
           <div className="rowTableDetail">
-            <b>💁‍♂ Age : </b> &gt; 18ANS{" "}
+            <b>💁‍♂ Age : </b> &gt; 18YEARS{" "}
           </div>
           <div className="rowTableDetail">
-            <b>💪🏻 Difficulté : </b> moyenne
+            <b>💪🏻 Difficulty : </b> medium
           </div>
         </div>
       </div>
       <div className="coveredTopics">
-        <div className="coveredTopicRef">Sujets à couvrir dans l'atelier :</div>
+        <div className="coveredTopicRef">Topics to cover in the workshop :</div>
         <div className="topic">➡ Starting with embedded systems</div>
         <div className="topic">➡ AVR Microcontroller Programming</div>
         <div className="topic">➡ Arduino jargon and terms</div>
@@ -90,26 +90,26 @@ function DetailedFormation(props) {
         <div className="topic">➡ Connecting Arduino with Mobile Device. </div>
       </div>
       <div className="coveredTopics">
-        <div className="coveredTopicRef">Projets à realiser :</div>
+        <div className="coveredTopicRef">Projects to be carried out :</div>
         <div className="topic">
-          ➡ Projet 1 : Simple LED Program
+          ➡ Project 1 : Simple LED Program
         </div>
         <div className="topic">
-        ➡ Projet 2 :  LED Blinking 
+        ➡ Project 2 :  LED Blinking 
         </div>
         <div className="topic">
-        ➡ Projet 3 : Integrating Sensors & Reading Environmental Physical Values.
+        ➡ Project 3 : Integrating Sensors & Reading Environmental Physical Values.
         </div>
       </div>
       <div className="coveredTopics">
-        <div className="coveredTopicRef">Politique de certification :</div>
+        <div className="coveredTopicRef">Certification Policy:</div>
         <div className="topic">
-          ➡ Certificat de mérite pour tous les participants à l'atelier
+          ➡ Certificate of achievement for all workshop participants
         </div>
         <div className="topic">
-          ➡ A l'issue de cet atelier, un
-          petit concours sera organisé parmi les étudiants participants et les
-          gagnants se verront remettre un 'Certificat d'Excellence'.
+          ➡ At the end of this workshop, a
+           small competition will be organized among the participating students and the
+           winners will be presented with a 'Certificate of Excellence'.
           
         </div>
         <div className="topic">

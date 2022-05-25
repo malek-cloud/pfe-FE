@@ -3,7 +3,7 @@ import "./machineGallery.css"
 function MachineGallery() {
   return (
     <div>
-          <div className='projecttitle'>Quelques-uns de nos projets</div>
+          <div className='projecttitle'>Some of our projects</div>
 
       <div className='machineGallery'>
       <img className='imagefromGallery' src="images/11.jpg" alt="" />

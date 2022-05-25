@@ -4,7 +4,6 @@ import { useDeleteItem } from "../context/cardContext";
 
 function ItemInPanier(props) {
   const deleteItem = useDeleteItem();
-
   const [quantity, setQuantity] = useState(props.element.quantity);
 
   function del() {
@@ -16,7 +15,7 @@ function ItemInPanier(props) {
     <div  className={"produitPanier"}>
       <img
         className="imageProduitPanier"
-        src="/images/kitIOT.png"
+      src={process.env.REACT_APP_BACKEND_URL +props.element.images[0]}
         alt="produit"
       />
       <div className="donneeProduitPanier">

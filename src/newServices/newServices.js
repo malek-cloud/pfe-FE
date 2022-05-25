@@ -71,18 +71,18 @@ function NewServices() {
     }
     let title ="";
     if(printing){
-      title = "Impression 3D" ;
+      title = "3D Printing" ;
   
       }else if(laser){
-            title = "Découpe Laser" ;
+            title = "Laser Cutting" ;
     
       }
       else if (manufacturing){
-            title = "Fabrication PCB" ;
+            title = "PCB Fabrication" ;
     
       }
       else if (milling){
-            title = "Routage CNC" ;
+            title = "CNC Routing" ;
     
       }
       let num ="";
@@ -137,7 +137,7 @@ function NewServices() {
             </p>
           </div>
           <a href="#wrapInline" alt="" className="goForDetails">
-            <div className="detailWord">Détails</div>
+            <div className="detailWord">Details</div>
             <div className="detailsIcon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@ function NewServices() {
               >
                 <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
               </svg> : <div></div> }
-            Impression 3D
+            3D Printing
           </div>
           <div
             className={laser ? "servicesButtonClicked" : "serviceButton"}
@@ -184,7 +184,7 @@ function NewServices() {
               >
                 <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
               </svg> : <div></div> }
-            Découpe Laser
+            Laser Cutting
           </div>
           <div
             className={
@@ -202,7 +202,7 @@ function NewServices() {
               >
                 <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
               </svg> : <div></div> }
-            Fabrication PCB
+              PCB Fabrication
           </div>
           <div
             className={milling ? "servicesButtonClicked" : "serviceButton"}
@@ -218,7 +218,7 @@ function NewServices() {
               >
                 <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
               </svg> : <div></div> }
-            Routage CNC
+            CNC Routing
           </div>
           
         </div>

@@ -31,7 +31,7 @@ function BuyModal(props) {
       >
         <Modal.Header closeButton style={{ textAlign: "center" }}>
           <Modal.Title id="contained-modal-title-vcenter">
-            <h4>Ajouter Au Panier</h4>
+            <h4>Add to Basket</h4>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -44,17 +44,17 @@ function BuyModal(props) {
               <div className="horline"></div>
               <Quantity setQuantity={setQuantity} quantity={quantity} />
               <div className="total">
-                <div className="prix">Prix total : </div>
+                <div className="prix">Total Price : </div>
                 <div className="totalPrice">{props.price * quantity + " DT"}</div>
               </div>
 
               <div className="horline"></div>
-              <div className="livraison">
-                💸Frais de livraison depend du ville (min 3DT)
+              <div className="livraison" style={{marginLeft:"5vw"}}>
+                💸Delivery costs depends on the city(min 3DT)
               </div>
-              <div className="livraison">🚐 Livraison sur toute la Tunisie</div>
-              <div className="livraison">
-                💳 Paiement sur place ou par carte bancaire
+              <div className="livraison" style={{marginLeft:"5vw"}}>🚐 Delivery all over Tunisia</div>
+              <div className="livraison" style={{marginLeft:"5vw"}}>
+                💳 Payment on site or by credit card
               </div>
             </div>
           </div>
@@ -64,14 +64,14 @@ function BuyModal(props) {
             onClick={props.onHide}
             style={{ backgroundColor: "rgba(49, 3, 68, 255)", color: "white" }}
           >
-            ⬅ Annuler
+            ⬅ Cancel
           </Button>
           <Button
             className="btn grow mx-2"
             style={{ backgroundColor: "rgba(49, 3, 68, 255)", color: "white" }}
             onClick={addToPanel}
           >
-            Ajouter au panier ✔️
+            Add to Basket ✔️
           </Button>
          
         </Modal.Footer>

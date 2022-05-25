@@ -29,7 +29,7 @@ function PersoInfo() {
     setReload(true);
     axios({
       method: "get",
-      url: process.env.REACT_APP_BACKEND_URL +`users/client/6282784d8250c9fca0fc1b20`,
+      url: process.env.REACT_APP_BACKEND_URL +`users/client/${auth.userId}`,
      headers: { "Content-Type": "application/json" }, 
     }).then((resp) => {
       setClient(resp.data.client);

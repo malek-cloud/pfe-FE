@@ -8,11 +8,11 @@ function Failpay() {
       },[])
   return (
       <div>
-          <div className="fail">Échec</div>
+          <div className="fail">Failed</div>
           <div className="echecIcon">⛔</div>
-          <div className="explicationfail">Il y a une erreur de paiement !</div>
-          <div className="explicationfail">Vous devez saisir des coordonnés bancaires valides svp</div>
-          <div className="explicationfail">Votre commande n'a pas été bien passée</div>
+          <div className="explicationfail">There is a payment error !</div>
+          <div className="explicationfail">You must enter valid bank credentials please</div>
+          <div className="explicationfail">Your order has not been sent</div>
           
 
     </div>

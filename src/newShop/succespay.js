@@ -8,10 +8,10 @@ function Succespay() {
       },[])
   return (
     <div>
-          <div className="succes">Succès</div>
-          <div className="explication">Votre commande a été bien passer</div>
-          <div className="explication">Le prix a été soustrait de votre solde</div>
-          <div className="thanks">Maker skills Up <br/> vous remercie pour votre confiance</div>
+          <div className="succes">Success</div>
+          <div className="explication">Your order has been successfully saved and sent</div>
+          <div className="explication">The price has been subtracted from your bank account</div>
+          <div className="thanks">Maker skills Up <br/> Thanks you for your trust</div>
 
     </div>
   )

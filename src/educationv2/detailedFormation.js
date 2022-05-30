@@ -33,7 +33,7 @@ function DetailedFormation(props) {
             <div className="workshopbenefit">✔ Start from zero</div>
             <div className="workshopbenefit">✔ Learn the concepts</div>
             <div className="workshopbenefit">
-              ✔ Develop an IOT project from scratch
+              ✔ Develop projects from scratch
             </div>
             <div className="workshopbenefit">
               ✔ Earn a certificate and showcase your skills

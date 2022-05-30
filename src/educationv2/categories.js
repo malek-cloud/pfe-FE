@@ -1,70 +1,83 @@
-import React from 'react'
-import "./education.css"
-import {useState} from "react";
+import React from "react";
+import "./education.css";
+import { useState } from "react";
 import { useCategoryUpdate } from "../context/formationCategory";
 
 function Categories(props) {
   const updateCat = useCategoryUpdate();
 
-  const [cat, setCat ] =useState("Embedded system")
-  const [subCateg, setSubCateg ] =useState([])
-  function selectEmbarque(){
+  const [cat, setCat] = useState("Embedded system");
+  const [subCateg, setSubCateg] = useState([]);
+  function selectEmbarque() {
     props.selectCategory("Embedded system");
     updateCat("Embedded system");
     setCat("Embedded system");
-    setSubCateg(["Notions de Base","Linux","Electronique","C Embarqué"]);
-    props.selectSubCateg(["Notions de Base","Linux","Electronique","C Embarqué"]);
-    console.log("category file "+[...subCateg])
-
+    setSubCateg(["Notions de Base", "Linux", "Electronique", "C Embarqué"]);
+    props.selectSubCateg([
+      "Notions de Base",
+      "Linux",
+      "Electronique",
+      "C Embarqué",
+    ]);
+    console.log("category file " + [...subCateg]);
   }
-  function selectMachine(){
+  function selectMachine() {
     props.selectCategory("Machines");
     setCat("Machines");
-    setSubCateg(["Impression 3D","Laser Cutting","Routage CNC","Fabrication PCB"]);
+    setSubCateg([
+      "Impression 3D",
+      "Laser Cutting",
+      "Routage CNC",
+      "Fabrication PCB",
+    ]);
     props.selectSubCateg([...subCateg]);
-    console.log("category file "+[...subCateg])
-
-
+    console.log("category file " + [...subCateg]);
   }
-  function selectIOT(){
+  function selectIOT() {
     props.selectCategory("Internet Of Things");
     setCat("Internet Of Things");
-    setSubCateg(["Notions de Base","Conception","Gateways", "Big Data"]);
+    setSubCateg(["Notions de Base", "Conception", "Gateways", "Big Data"]);
     props.selectSubCateg([...subCateg]);
-    console.log("category file "+[...subCateg])
-
-
+    console.log("category file " + [...subCateg]);
   }
-  function selectAI(){
+  function selectAI() {
     props.selectCategory("Artificial intelligence");
     setCat("Artificial intelligence");
     setSubCateg(["Machine Learning", "Deep Learning", "NLP", "Mathématiques"]);
     props.selectSubCateg([...subCateg]);
-    console.log("category file "+[...subCateg])
-
-
+    console.log("category file " + [...subCateg]);
   }
-  function selectDev(){
+  function selectDev() {
     props.selectCategory("IT development");
     setCat("IT development");
-    setSubCateg(["Développement Web", "Développement Mobile", "DevOps", "Automation Tests"]);
+    setSubCateg([
+      "Développement Web",
+      "Développement Mobile",
+      "DevOps",
+      "Automation Tests",
+    ]);
     props.selectSubCateg([...subCateg]);
-    console.log("category file "+[...subCateg])
-
-
-  }  
-  function selectRobotics(){
+    console.log("category file " + [...subCateg]);
+  }
+  function selectRobotics() {
     setCat("Robotics");
-    setSubCateg(["Notions de Base","Robot Arduino","Drones"]);
+    setSubCateg(["Notions de Base", "Robot Arduino", "Drones"]);
     props.selectSubCateg([...subCateg]);
     props.selectCategory("Robotics");
-    console.log("category file "+[...subCateg])
-
+    console.log("category file " + [...subCateg]);
   }
 
   return (
-    <div className='categoryBlock'>
-          <div className='categoryTitle' >Categories</div>
+    <div className="categoryBlock">
+      <div className="categoryTitle">Categories</div>
+      {props.dataCategories &&
+        props.dataCategories.map((e, index) =>   <div
+        className={cat !== "Embedded system" ? "category" : "categorySelected"}
+        onClick={selectEmbarque}
+        key={index}
+      >{e}</div>)}
+     
+      {/*  <div className='categoryTitle' >Categories</div>
           <div  className= {cat!=="Embedded system" ? "category" : "categorySelected"}  onClick={selectEmbarque}>Embedded system</div>
           
           {cat==="Embedded system" ? <div className="subCategoryBlock">
@@ -108,10 +121,9 @@ function Categories(props) {
             <div className="subCategoryItem">➡Raspberry Pi</div>
             <div className="subCategoryItem">➡STM 32</div>
             <div className="subCategoryItem">➡ESP 32</div>
-          </div> : <div></div>}
-
+          </div> : <div></div>} */}
     </div>
-  )
+  );
 }
 
-export default Categories
+export default Categories;

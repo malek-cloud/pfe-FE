@@ -18,7 +18,6 @@ function HeaderCarousel(props) {
 
   useEffect(() => {
     window.addEventListener("resize", detectSize);
-    console.log(windowDimenion.winWidth);
     return () => {
       window.removeEventListener("resize", detectSize);
     };

@@ -22,15 +22,23 @@
     font-size: 35px;
     font-weight: 900;
     padding-bottom: 4vh;
-    margin-right: 18vw;
+    text-align: end;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.topevent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.welcomeevent {
+    display: flex;
+    flex-direction: column;
+    width: 120%;
+}
+
 .joinEventImage {
-    position: absolute;
     height: 290px;
-    top: 219vh;
-    margin-left: 9vw;
 }
 
 .typeevent {
@@ -53,13 +61,13 @@
     font-size: 17px;
     text-align: start;
     width: fit-content;
-    margin-left: 5vw;
+    margin-left: 6.3vw;
     border-bottom: 1px solid black;
 }
 
 .animatedDate {
     display: flex;
-    margin-top: 7vh;
+    margin-top: 2vh;
     margin-left: 8.5vw;
 }
 
@@ -125,11 +133,12 @@
 
 .partinline {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .descrblock {
     width: 40vw;
+    margin-top: 100px;
     margin-left: 5vw;
     text-align: start;
 }
@@ -144,6 +153,14 @@
 
 .realdesc {
     text-align: start;
+    width: 100%;
+}
+
+.eventDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
 }
 
 .eventImage {
@@ -160,21 +177,31 @@
 
 .formEvent {
     margin-top: 10vh;
-    background-color: #fae986b7;
-    padding: 10px;
-    width: 20vw;
+    display: flex;
     margin-left: 10vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fae986b7;
+    width: 20vw;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
 }
 
-.titreEvent {
-    font-weight: 600;
+.labelInput {
+    text-align: start;
+    width: 80%;
 }
 
 .textInput {
-    margin-left: 30px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titreEvent {
+    margin-top: 30px;
+    font-weight: 600;
 }

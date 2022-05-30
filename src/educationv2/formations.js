@@ -23,9 +23,14 @@ function Formations(props) {
 
   return (
     <div className="formationsBlock">
-      <div className="categoryName">{props.category}</div>
+      <div className="categoryName">{/* {props.category} */} All Our Workshops</div>
       <div className="gridFormation">
-        <div onClick={formationRasp}>
+        {props.dataFormations && props.dataFormations.map((e, index)=>(
+          <div key={index} onClick={formationRasp}>
+          <FormationItem title={e} />
+        </div>
+        ))}
+      {/*   <div onClick={formationRasp}>
           <FormationItem title={"RaspBerry PI"} />
         </div>
         <div onClick={formationSTM}>
@@ -36,7 +41,7 @@ function Formations(props) {
         </div>
         <div onClick={formationArd}>
           <FormationItem title={"Arduino"} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

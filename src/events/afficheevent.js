@@ -1,34 +1,410 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./event.css";
+import EventForm from "./eventForm";
 function Afficheevent() {
+  const [load, setLoader] = useState(false);
+  const [data, setData] = useState();
+  const [days, setDays] = useState(-1);
+  const [hours, setHours] = useState(-1);
+  const [minutes, setMinutes] = useState(-1);
+  const months = {
+    1: 31,
+    2: 28,
+    3: 31,
+    4: 30,
+    5: 31,
+    6: 30,
+    7: 31,
+    8: 31,
+    9: 30,
+    10: 31,
+    11: 30,
+    12: 31,
+  };
+
+  useEffect(() => {
+    setLoader(true);
+    axios
+      .get(process.env.REACT_APP_BACKEND_URL + "activities/Events")
+      .then((res) => {
+        setData(res.data.events[0]);
+        //test 1 :ne7sbou nbr de jours
+        if (
+          //si month event > month actuel on fait une simple substraction
+          res.data.events[0] &&
+          parseInt(
+            new Date(res.data.events[0].date)
+              .toLocaleDateString()
+              .toString()
+              .slice(
+                0,
+                new Date(res.data.events[0].date)
+                  .toLocaleDateString()//taaty mm/dd/yyyy
+                  .indexOf("/")
+                  //el month we5ou awel position donc naamel slice mellouwel lin nal9a awel */*
+              ) -
+              new Date()
+                .toLocaleDateString()
+                .slice(0, new Date().toLocaleDateString().indexOf("/"))
+          ) === 1
+          //here we test if diff between months
+        ) {
+          if (
+            res.data.events[0] &&
+            parseInt(
+              new Date(res.data.events[0].date).toTimeString().slice(3, 4)
+            ) > parseInt(new Date().toTimeString().slice(3, 4))
+          ) {
+            setMinutes(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(3, 5)
+              ) - parseInt(new Date().toTimeString().slice(3, 5))
+            );
+            setHours(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+              ) - parseInt(new Date().toTimeString().slice(0, 2))
+            );
+          } else {
+            setMinutes(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(3, 5)
+              ) +
+                60 -
+                parseInt(new Date().toTimeString().slice(3, 5))
+            );
+            setHours(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+              ) -
+                parseInt(new Date().toTimeString().slice(0, 2)) -
+                1
+            );
+          }
+          if (
+            //test pour calculer les jours, selon nmbr de jours du mois actuel
+            months[
+              new Date()
+                .toLocaleDateString()
+                .slice(0, new Date().toLocaleDateString().indexOf("/"))
+            ] === 31
+          ) {
+            setDays(
+              parseInt(new Date(res.data.events[0].date).getDate().toString()) +
+                31 -
+                new Date().getDate().toString()
+              
+            );
+          } else if (
+            months[
+              new Date()
+                .toLocaleDateString()
+                .slice(0, new Date().toLocaleDateString().indexOf("/"))
+            ] === 30
+          ) {
+            setDays(
+              parseInt(new Date(res.data.events[0].date).getDate().toString()) +
+                30 -
+                new Date().getDate().toString() 
+            );
+          } else {
+            setDays(
+              parseInt(new Date(res.data.events[0].date).getDate().toString()) +
+                28 -
+                new Date().getDate().toString() +
+                new Date()
+                  .toLocaleDateString()
+                  .slice(0, new Date().toLocaleDateString().indexOf("/")) 
+            );
+          }
+        }
+        else if (
+          //if fnafs el month
+          res.data.events[0] &&
+          parseInt(
+            new Date(res.data.events[0].date)
+              .toLocaleDateString()
+              .toString()
+              .slice(
+                0,
+                new Date(res.data.events[0].date)
+                  .toLocaleDateString()
+                  .indexOf("/")
+              ) -
+              new Date()
+                .toLocaleDateString()
+                .slice(0, new Date().toLocaleDateString().indexOf("/"))
+          ) === 0
+        ){
+          setDays( parseInt(new Date(res.data.events[0].date).getDate().toString())  -
+          new Date().getDate().toString() )
+          if (
+            res.data.events[0] &&
+            parseInt(
+              new Date(res.data.events[0].date).toTimeString().slice(3, 4)
+            ) > parseInt(new Date().toTimeString().slice(3, 4))
+          ) {
+            setMinutes(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(3, 5)
+              ) - parseInt(new Date().toTimeString().slice(3, 5))
+            );
+            setHours(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+              ) - parseInt(new Date().toTimeString().slice(0, 2))
+            );
+          } else {
+            setMinutes(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(3, 5)
+              ) +
+                60 -
+                parseInt(new Date().toTimeString().slice(3, 5))
+            );
+            setHours(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+              ) -
+                parseInt(new Date().toTimeString().slice(0, 2)) -
+                1
+            );
+          }
+          if (
+            res.data.events[0] &&
+            parseInt(
+              new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+            ) < parseInt(new Date().toTimeString().slice(0, 2))
+          ) {
+            setDays(days - 1);
+            setHours(hours + 24);
+          }
+        }
+        const interval = setInterval(() => {
+          if (
+            //si month event > month actuel on fait une simple substraction
+            res.data.events[0] &&
+            parseInt(
+              new Date(res.data.events[0].date)
+                .toLocaleDateString()
+                .toString()
+                .slice(
+                  0,
+                  new Date(res.data.events[0].date)
+                    .toLocaleDateString()//taaty mm/dd/yyyy
+                    .indexOf("/")
+                    //el month we5ou awel position donc naamel slice mellouwel lin nal9a awel */*
+                ) -
+                new Date()
+                  .toLocaleDateString()
+                  .slice(0, new Date().toLocaleDateString().indexOf("/"))
+            ) === 1
+            //here we test if diff between months
+          ) {
+            if (
+              res.data.events[0] &&
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(3, 4)
+              ) > parseInt(new Date().toTimeString().slice(3, 4))
+            ) {
+              setMinutes(
+                parseInt(
+                  new Date(res.data.events[0].date).toTimeString().slice(3, 5)
+                ) - parseInt(new Date().toTimeString().slice(3, 5))
+              );
+              setHours(
+                parseInt(
+                  new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+                ) - parseInt(new Date().toTimeString().slice(0, 2))
+              );
+            } else {
+              setMinutes(
+                parseInt(
+                  new Date(res.data.events[0].date).toTimeString().slice(3, 5)
+                ) +
+                  60 -
+                  parseInt(new Date().toTimeString().slice(3, 5))
+              );
+              setHours(
+                parseInt(
+                  new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+                ) -
+                  parseInt(new Date().toTimeString().slice(0, 2)) -
+                  1
+              );
+            }
+            if (
+              //test pour calculer les jours, selon nmbr de jours du mois actuel
+              months[
+                new Date()
+                  .toLocaleDateString()
+                  .slice(0, new Date().toLocaleDateString().indexOf("/"))
+              ] === 31
+            ) {
+              setDays(
+                parseInt(new Date(res.data.events[0].date).getDate().toString()) +
+                  31 -
+                  new Date().getDate().toString()
+                
+              );
+            } else if (
+              months[
+                new Date()
+                  .toLocaleDateString()
+                  .slice(0, new Date().toLocaleDateString().indexOf("/"))
+              ] === 30
+            ) {
+              setDays(
+                parseInt(new Date(res.data.events[0].date).getDate().toString()) +
+                  30 -
+                  new Date().getDate().toString() 
+              );
+            } else {
+              setDays(
+                parseInt(new Date(res.data.events[0].date).getDate().toString()) +
+                  28 -
+                  new Date().getDate().toString() +
+                  new Date()
+                    .toLocaleDateString()
+                    .slice(0, new Date().toLocaleDateString().indexOf("/")) 
+              );
+            }
+          }
+          if (
+            res.data.events[0] &&
+            parseInt(
+              new Date(res.data.events[0].date).toTimeString().slice(3, 4)
+            ) > parseInt(new Date().toTimeString().slice(3, 4))
+          ) {
+            setMinutes(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(3, 5)
+              ) - parseInt(new Date().toTimeString().slice(3, 5))
+            );
+            setHours(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+              ) - parseInt(new Date().toTimeString().slice(0, 2))
+            );
+          } else {
+            setMinutes(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(3, 5)
+              ) +
+                60 -
+                parseInt(new Date().toTimeString().slice(3, 5))
+            );
+            setHours(
+              parseInt(
+                new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+              ) -
+                parseInt(new Date().toTimeString().slice(0, 2)) -
+                1
+            );
+          }
+          if (
+            res.data.events[0] &&
+            parseInt(
+              new Date(res.data.events[0].date).toTimeString().slice(0, 2)
+            ) < parseInt(new Date().toTimeString().slice(0, 2))
+          ) {
+            setDays(days - 1);
+            setHours(hours + 24);
+          }
+        }, 60000);
+
+        setLoader(false);
+        console.log(hours + "hours")
+        return () => clearInterval(interval);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const [participate, setParticipate] = useState(false);
   return (
     <div className="eventpage">
-      <div className="soon">Event Coming Soon</div>
-      <div className="tuned">Stay Tuned !</div>
-      <img className="joinEventImage" src="/images/eventAttends.png" alt="" />
-      <div className="typeevent">Hackathon : Drone Challenge Arena</div>
-      {/*      <div className="challenge">Drone Challenge Arena</div> */}
-      <div className="date">10 July 2022</div>
+      <div className="topevent">
+        <div className="topleftevent">
+          <div className="welcomeevent">
+            <div className="soon">Event Coming Soon</div>
+            <div className="tuned">Stay Tuned !</div>
+          </div>
+          {data && (
+            <div className="typeevent">
+              {data.type} : {data.name}{" "}
+            </div>
+          )}
+          {data && (
+            <div className="date">
+              {" "}
+              {new Date(data.date).getDate()}{" "}
+              {new Date(data.date).toString().slice(4, 7)}{" "}
+              {new Date(data.date).getFullYear()} at{" "}
+              {new Date(data.date).toLocaleTimeString()}
+            
+            </div>
+       
+          )}
+        </div>
+        <img className="joinEventImage" src="/images/eventAttends.png" alt="" />
+      </div>
       <div className="animatedDate">
         <div className="specificdate">
           <div className="blocks">
-            <div className="block">2</div>
-            <div className="block">9</div>
+            {days>=0 && (
+              <div className="block">
+                {days.toString().length === 1 ? 0 : days.toString().slice(0, 1)}
+              </div>
+            )}
+            {days>=0  && (
+              <div className="block">
+                {days.toString().length === 1
+                  ? days
+                  : days.toString().slice(1, 2)}
+              </div>
+            )}
           </div>
           <div className="what">Days</div>
         </div>
         <div className="specificdate">
           <div className="blocks">
-            <div className="block">1</div>
-            <div className="block">9</div>
+            <div className="blocks">
+              {hours>=0 && (
+                <div className="block">
+                  {hours.toString().length === 1
+                    ? 0
+                    : hours.toString().slice(0, 1)}
+                </div>
+              )}
+              {hours >=0 && (
+                <div className="block">
+                  {hours.toString().length === 1
+                    ? hours
+                    : hours.toString().slice(1, 2)}
+                </div>
+              )}
+            </div>
           </div>
           <div className="what">Hours</div>
         </div>
         <div className="specificdate">
           <div className="blocks">
-            <div className="block">3</div>
-            <div className="block">1</div>
+            {minutes>=0  && (
+              <div className="block">
+                {minutes.toString().length === 1
+                  ? 0
+                  : minutes.toString().slice(0, 1)}
+              </div>
+            )}
+            {minutes >=0&& (
+              <div className="block">
+                {minutes.toString().length === 1
+                  ? minutes
+                  : minutes.toString().slice(1, 2)}
+              </div>
+            )}
           </div>
           <div className="what">Minutes</div>
         </div>
@@ -41,115 +417,31 @@ function Afficheevent() {
           setParticipate(!participate);
         }}
       >
-       <a href="#participateEvent" style={{textDecoration:"none" , color :"white"}}>Participate</a>
+        <a
+          href="#participateEvent"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          Participate
+        </a>
       </div>
       {participate ? (
         <div className="participation" id="participateEvent">
-          <div className="fillform" >
-          Fill out this form to register
-          </div>
+          <div className="fillform">Fill out this form to register</div>
           <div className="partinline">
             <div className="descrblock">
               {/*   <img className="eventImage" src="/images/dronevent.jpg" alt="" /> */}
               <div className="eventDescription">
                 <div className="descriptionTitle">
-                Your mission, if you accept it
+                  Your mission, if you accept it
                 </div>
                 <div className="realdesc">
-                In a team of 1 to 5 people, present your project in 5 slides
-                   (PDF format) then drop it on the platform before 1
-                   July 11:59 pm <br />
-                   Don't forget to submit your CV as well as those of the members of
-                   your team so that you can be spotted by our team.<br />
-                   Announcement of the 20 selected teams: July 4. <br />
-                   or this 2nd stage, 20 teams will be invited to deepen
-                   their projects, accompanied by our mentors.
-                  <br />
-                  The expected deliverable is a file of 20 slides (PDF format).
-                  <br />
-                  Do not hesitate to suggest additional documents (videos, images,
-                   mockups, etc.) in order to convince the Jury.
-                  <br />
-                  Announcement of the 5 finalist teams: 10 January.
-                  <br />
-                  The 5 finalist teams will be invited to pitch their
-                   project in front of the management committee!<br />
-                   Oral presentations should not exceed 5 minutes
-                   and will take place at the beginning of February at our headquarters <br />
-                   At the end of this day, all teams will be
-                   rewarded! <br />
+                  {data && <div>{data.description}</div>}
                 </div>
               </div>
               {/*    <img className="joinEventImage" src="" alt="" /> */}
             </div>
-          
-              <div className="formEvent">
-                <div className="titreEvent">
-                Participate in this event
-                </div>
-                <div style={{marginLeft:"40px" }} className="horizSepLine"></div>
 
-                <div className="textInput">
-                  <div className="labelInput">
-                    Full Name : <b>*</b>
-                  </div>
-                  <input
-                    className="askformationinput"
-                    type="text"
-                    placeholder="nom.."
-                  />
-                </div>
-                <div className="textInput">
-                  <div className="labelInput">
-                    Mobile number : <b>*</b>
-                  </div>
-                  <input
-                    className="askformationinput"
-                    type="number"
-                    placeholder="téléphone.."
-                  />
-                </div>
-                <div className="textInput">
-                  <div className="labelInput">Job : </div>
-                  <input
-                    className="askformationinput"
-                    type="text"
-                    placeholder="profession.."
-                  />
-                </div>
-                <div className="textInput">
-                  <div className="labelInput">College : </div>
-                  <input
-                    autoComplete="on"
-                    className="askformationinput"
-                    type="text"
-                    placeholder="entreprise / faculté.."
-                  />
-                </div>
-                <div className="textInput">
-                  <div className="labelInput">
-                    Email : <b>*</b>
-                  </div>
-                  <input
-                    className="askformationinput"
-                    type="email"
-                    placeholder="email.."
-                  />
-                </div>
-                <div className="textInput">
-                  <div className="labelInput">
-                    Team members
-                  </div>
-                  <input
-                    className="askformationinput"
-                    type="text"
-                    placeholder="Noms des membres.."
-                  />
-                </div>
-
-                <div className="submitAsk" style={{marginLeft:"28px"}}>Join</div>
-              </div>
-            
+            <EventForm eventName={data.name}/>
           </div>
         </div>
       ) : (

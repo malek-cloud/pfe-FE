@@ -1,7 +1,7 @@
 import "./contact.css";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import Location from "./location";
+/* import Location from "./location"; */
 
 
 function Contact() {
@@ -155,7 +155,7 @@ function Contact() {
       </div>
 
     </div>
-    <Location/>
+{/*     <Location/> */}
 
    </div>
   );

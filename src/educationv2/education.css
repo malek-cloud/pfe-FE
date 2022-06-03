@@ -11,8 +11,9 @@
 
 .categoryBlock {
     width: 18vw;
-    height: 80vh;
+    padding: 20px 0px;
     display: flex;
+    height: fit-content;
     flex-direction: column;
     justify-content: center;
     background-color: white;
@@ -21,13 +22,8 @@
 .categoryTitle {
     font-size: 25px;
     font-weight: 700;
-    height: 32px;
-    align-items: center;
-    text-align: center;
-    margin: 0px 10px 0px 25px;
-    position: relative;
-    width: 10vw;
-    top: -9vh;
+    text-align: start;
+    margin: 20px 10px 30px 25px;
     cursor: pointer;
     transition: .2s;
 }
@@ -57,23 +53,6 @@
     text-decoration: underline;
     font-weight: bold;
     color: rgb(65, 10, 51);
-}
-
-.subCategoryBlock {
-    margin: 0px 2vw 2vh 2.5vw;
-    padding-left: 8px;
-    font-size: 13px;
-}
-
-.subCategoryItem {
-    cursor: pointer;
-    width: 100%;
-    text-align: start;
-}
-
-.subCategoryItem:hover {
-    font-weight: bold;
-    text-decoration: underline;
 }
 
 
@@ -145,9 +124,9 @@
 .selectform {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 178px;
+    margin-left: 2px;
     text-align: start;
-    margin-left: 4vw;
 }
 
 .textareaask {
@@ -269,7 +248,6 @@
     border-radius: 4px;
     font-size: 14px;
     cursor: pointer;
-    width: 72%;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
@@ -383,6 +361,7 @@ ul li::before {
 .inlineImage {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
 }
 
 .levelFormation {
@@ -414,7 +393,7 @@ ul li::before {
     background-color: rgb(90, 16, 90);
     color: white;
     height: fit-content;
-    cursor: pointer;
+    cursor: default;
     width: fit-content;
     font-size: 16px;
     transition: .4s;
@@ -424,14 +403,6 @@ ul li::before {
     margin-top: 2vh;
     margin-bottom: 4vh;
     border-radius: 10px;
-}
-
-.participateButton:hover {
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
 }
 
 .coveredTopics {
@@ -517,7 +488,7 @@ ul li::before {
     .inlineImage {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
     }
     .mobileCenter {

@@ -1,20 +1,20 @@
-import React, { useRef, useState, useContext } from "react";
+import React, { useRef, useState } from "react";
 import FacebookAuth from "./facebookAuth";
 import axios from "axios";
 import GoogleOauth from "./googleOauth";
-import { AuthContext } from "../context/loginContext";
+import { useLoginFunction } from "../context/loginContext";
 
 function SignIn(props) {
-  const auth = useContext(AuthContext);
+const login = useLoginFunction()
   const email = useRef();
   const [load, setLoad] = useState(false);
   const [alert, setAlert] = useState("");
   const password = useRef();
   const signIn = async () => {
-    console.log(email + " hedha el email");
+    login(email.current.value, password.current.value);
+    /* console.log(email + " hedha el email");
     try {
       setLoad(true);
-
       const data = await axios.post(process.env.REACT_APP_BACKEND_URL + "users/login", {
         email: email.current.value,
         password: password.current.value,
@@ -39,7 +39,7 @@ function SignIn(props) {
           setAlert("");
         }, 3000);
       console.log(err + " hedhy el erreur");
-    }
+    } */
   };
   return (
     <div className="loginComponent">

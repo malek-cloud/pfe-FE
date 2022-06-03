@@ -7,7 +7,6 @@ function GoogleOauth() {
   const responseGoogle = (response) => {
     getEmail(response.profileObj.email)
     getName(response.profileObj.name)
-    
 
   };
   return (

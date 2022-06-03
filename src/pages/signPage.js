@@ -1,18 +1,18 @@
 import React from 'react'
 import NavBar from "../elements/navBar";
 import SignTemplate from '../sign/signTemplate';
-import {useContext} from "react"
-import {AuthContext} from '../context/loginContext'
 import {useName} from '../context/fcbGgle'
+import {useDeconnectionState, useDataContext} from '../context/loginContext'
 import EndOrder from '../newShop/EndOrder';
 function SignPage() {
+const deconnect = useDeconnectionState();
+const data = useDataContext();
   const name = useName();
-const auth = useContext(AuthContext)
   return (
     <div>
           <NavBar type="panier" />
           <div >
-          {auth.isLoggedIn || name!=="" ? <EndOrder/> : <SignTemplate/>}
+          {(!deconnect ||  JSON.parse(localStorage.getItem("userData")))  ||  name!=="" ? < EndOrder/> : <SignTemplate/>}
           </div>
     </div>
   )

@@ -6,31 +6,21 @@ import Education from "./pages/education";
 import ContactUs from "./pages/contactus";
 import ProductDetail from "./pages/productShopDetail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState } from "react";
 import { BasketProvider } from "./context/basketContext";
 import { FcbggleProvider } from "./context/fcbGgle";
 import { CardItemsProvider } from "./context/cardContext";
 import Panier from "./pages/panier";
 import Succespay from "./newShop/succespay";
 import Failpay from "./newShop/failpay";
-import { useLogin } from "./hooks/loginHook";
 import SignPage from "./pages/signPage";
-import { AuthContext } from "./context/loginContext";
+import { AuthProvider } from "./context/loginContext";
+
 export default function App() {
-  const { token, login, logout, userId, userName } = useLogin();
+
   return (
     <BrowserRouter basename="/">
-      <AuthContext.Provider
-        value={{
-          isLoggedIn: !!token,
-          token: token,
-          userId: userId,
-          userName: userName,
-          login: login,
-          logout: logout,
-        }}
-      >
-        <BasketProvider>
+    <AuthProvider>
+    <BasketProvider>
           <CardItemsProvider>
             <FcbggleProvider>
             <Routes>
@@ -52,7 +42,7 @@ export default function App() {
             </FcbggleProvider>
           </CardItemsProvider>
         </BasketProvider>
-      </AuthContext.Provider>
+    </AuthProvider>
     </BrowserRouter>
   );
 }

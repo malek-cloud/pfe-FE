@@ -14,29 +14,25 @@ export function useNameUpdate() {
   return useContext(getNameContext);
 }
 export function useEmailUpdate() {
-      return useContext(getEmailContext);
-    }
+  return useContext(getEmailContext);
+}
 export function FcbggleProvider({ children }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   function getEmail(e) {
-
     setEmail(e);
-    console.log(email )
-
   }
   function getName(e) {
-      setName(e);
-      console.log(name )
-    }
+    setName(e);
+  }
   return (
     <nameContext.Provider value={name}>
       <emailContext.Provider value={email}>
         <getNameContext.Provider value={getName}>
-        <getEmailContext.Provider value={getEmail}>
-          {children}
-        </getEmailContext.Provider>
+          <getEmailContext.Provider value={getEmail}>
+            {children}
+          </getEmailContext.Provider>
         </getNameContext.Provider>
       </emailContext.Provider>
     </nameContext.Provider>

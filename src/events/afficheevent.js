@@ -322,6 +322,7 @@ function Afficheevent() {
         console.log(err);
       });
   }, []);
+  console.log(hours)
   const [participate, setParticipate] = useState(false);
   return (
     <div className="eventpage">

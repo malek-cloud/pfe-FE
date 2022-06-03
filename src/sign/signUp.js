@@ -1,10 +1,10 @@
-import React, { useRef,useState , useContext} from "react";
+import React, { useRef, useState } from "react";
 import FacebookAuth from "./facebookAuth";
-import GoogleOauth from "./googleOauth"
-import { AuthContext } from "../context/loginContext";
-import axios from "axios";
+import GoogleOauth from "./googleOauth";
+import { useSignUpFunction } from "../context/loginContext";
 function SignUp(props) {
-  const auth = useContext(AuthContext);
+  const signup = useSignUpFunction();
+
   const email = useRef();
   const password = useRef();
   const prenom = useRef();
@@ -12,7 +12,14 @@ function SignUp(props) {
   const phone = useRef();
   const [load, setLoad] = useState(false);
   const signUp = async () => {
-    try {
+    signup(
+      nom.current.value,
+      prenom.current.value,
+      email.current.value,
+      phone.current.value,
+      password.current.value
+    );
+    /* try {
       setLoad(true);
       const data = await axios.post(
         process.env.REACT_APP_BACKEND_URL +"users/createClient",
@@ -27,12 +34,13 @@ function SignUp(props) {
       console.log(data.status);
       console.log(data);
       if (data.status === 201) {
+         
         auth.login(data.data.client._id, data.data.token, data.data.expiryDate, data.data.client.prenom);
         setLoad(false);
       }
     } catch (err) {
-      console.log(err + " hedhy el erreur");
-    }
+      console.log(err + " hedhy el erreur mta signUp");
+    } */
   };
   return (
     <div className="loginComponent">
@@ -96,13 +104,18 @@ function SignUp(props) {
         </div>
       </div>
 
-      {load ? <div className="d-flex justify-content-center" style={{marginTop  : "16px",  marginLeft : "7vw" , marginBottom : "16px"}}>
-        <div className="spinner-border" role="status">
+      {load ? (
+        <div
+          className="d-flex justify-content-center"
+          style={{ marginTop: "16px", marginLeft: "7vw", marginBottom: "16px" }}
+        >
+          <div className="spinner-border" role="status"></div>
         </div>
-      </div> : <div className="logInButton1" onClick={signUp}>
-       Sign Up
-      </div>
-      }
+      ) : (
+        <div className="logInButton1" onClick={signUp}>
+          Sign Up
+        </div>
+      )}
 
       <div className="inscri" style={{ marginTop: "10px" }}>
         <div className="inscriQuestion">Do you already have an account ? </div>

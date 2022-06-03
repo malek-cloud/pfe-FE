@@ -32,7 +32,6 @@ export function CardItemsProvider({ children }) {
   function AddToCard(e, n) {
     setBasketChanging(true)
 
-    console.log(n);
     if (productsInCard.find((x) => x.name === e.name)) {
       addCard(
         productsInCard.map((elem) =>
@@ -47,8 +46,6 @@ export function CardItemsProvider({ children }) {
     } else {
       e["quantity"] = n;
       addCard([...productsInCard, e]);
-     
-      console.log("list with new item : " + productsInCard);
     }
    if(n){
     setTotal(total + e.price*n);
@@ -84,8 +81,6 @@ export function CardItemsProvider({ children }) {
     } else {
       let arr = [...productsInCard];
       const index = arr.indexOf(e);
-      console.log(
-        productsInCard[index].quantity + " quantity of deleted product");
         setTotal(total - e.price*productsInCard[index].quantity);
       
       deleteFromBasket(productsInCard[index].quantity);
@@ -93,7 +88,6 @@ export function CardItemsProvider({ children }) {
         arr.splice(index, 1); // 2nd parameter means remove one item only
       }
       addCard(arr);
-      console.log("deleted item " + productsInCard);
     }
   
   

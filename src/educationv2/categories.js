@@ -1,82 +1,48 @@
 import React from "react";
 import "./education.css";
-import { useState } from "react";
-import { useCategoryUpdate } from "../context/formationCategory";
-
 function Categories(props) {
-  const updateCat = useCategoryUpdate();
-
-  const [cat, setCat] = useState("Embedded system");
-  const [subCateg, setSubCateg] = useState([]);
-  function selectEmbarque() {
-    props.selectCategory("Embedded system");
-    updateCat("Embedded system");
-    setCat("Embedded system");
-    setSubCateg(["Notions de Base", "Linux", "Electronique", "C Embarqué"]);
-    props.selectSubCateg([
-      "Notions de Base",
-      "Linux",
-      "Electronique",
-      "C Embarqué",
-    ]);
-    console.log("category file " + [...subCateg]);
-  }
-  function selectMachine() {
-    props.selectCategory("Machines");
-    setCat("Machines");
-    setSubCateg([
-      "Impression 3D",
-      "Laser Cutting",
-      "Routage CNC",
-      "Fabrication PCB",
-    ]);
-    props.selectSubCateg([...subCateg]);
-    console.log("category file " + [...subCateg]);
-  }
-  function selectIOT() {
-    props.selectCategory("Internet Of Things");
-    setCat("Internet Of Things");
-    setSubCateg(["Notions de Base", "Conception", "Gateways", "Big Data"]);
-    props.selectSubCateg([...subCateg]);
-    console.log("category file " + [...subCateg]);
-  }
-  function selectAI() {
-    props.selectCategory("Artificial intelligence");
-    setCat("Artificial intelligence");
-    setSubCateg(["Machine Learning", "Deep Learning", "NLP", "Mathématiques"]);
-    props.selectSubCateg([...subCateg]);
-    console.log("category file " + [...subCateg]);
-  }
-  function selectDev() {
-    props.selectCategory("IT development");
-    setCat("IT development");
-    setSubCateg([
-      "Développement Web",
-      "Développement Mobile",
-      "DevOps",
-      "Automation Tests",
-    ]);
-    props.selectSubCateg([...subCateg]);
-    console.log("category file " + [...subCateg]);
-  }
-  function selectRobotics() {
-    setCat("Robotics");
-    setSubCateg(["Notions de Base", "Robot Arduino", "Drones"]);
-    props.selectSubCateg([...subCateg]);
-    props.selectCategory("Robotics");
-    console.log("category file " + [...subCateg]);
-  }
-
   return (
     <div className="categoryBlock">
       <div className="categoryTitle">Categories</div>
-      {props.dataCategories &&
-        props.dataCategories.map((e, index) =>   <div
-        className={cat !== "Embedded system" ? "category" : "categorySelected"}
-        onClick={selectEmbarque}
-        key={index}
-      >{e}</div>)}
-     
+      <div
+        className={ props.title!=="All Our Workshops" ? "category" : "categorySelected"}
+        onClick={()=>{
+          props.getTitle("All Our Workshops")
+          props.getWorkshops(props.data);
+          props.getFilter(false);
+        }}
+      >
+        All Our Workshops
+      </div>
+      {props.data &&
+        props.data.map((e, index) => (
+          <div
+            className={
+              e.field !== props.title? "category" : "categorySelected"
+            }
+            onClick={() => {
+              props.getTitle(e.field)
+              const workshopPerCategory = [];
+              workshopPerCategory.push(e);
+              props.data.map((e2) => {
+                if (
+                  e.field === e2.field &&
+                  !workshopPerCategory.includes(e2)
+                ) {
+                  workshopPerCategory.push(e2);
+               
+                }
+
+              });
+              props.getWorkshops(workshopPerCategory)
+              props.getFilter(true);
+            }}
+            key={index}
+          >
+            {e.field}
+          </div>
+        ))}
+
       {/*  <div className='categoryTitle' >Categories</div>
           <div  className= {cat!=="Embedded system" ? "category" : "categorySelected"}  onClick={selectEmbarque}>Embedded system</div>
           

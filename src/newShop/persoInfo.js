@@ -1,50 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./order.css";
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { AuthContext } from "../context/loginContext";
+import { useContext, useState } from "react";
 import { totalContext } from "../context/cardContext";
+import { useDataContext } from "../context/loginContext";
 import { useEmail, useName } from "../context/fcbGgle";
 function PersoInfo() {
-  const [client, setClient] = useState(" enaaa feraz'");
+  const [dataValues, setDataValues] = useState();
+  const dataconnect = useDataContext();
+  useEffect(() => {
+    setDataValues(JSON.parse(localStorage.getItem("userData")));
+  }, []);
   const email = useEmail();
   const name = useName();
-  const [reload, setReload] = useState(false);
-  const auth = useContext(AuthContext);
+  const data = useDataContext();
   const price = useContext(totalContext);
-/*   const fetch = async () => {
-    console.log("before user id : " + auth.userId);
-    const resp = await axios.get(
-      `http://localhost:5000/users/client/${auth.userId}`
-    );
-
-    console.log("after  " + auth.userId);
-    setClient(resp.data.client);
-    console.log(client);
-    setReload(false);
-  }; */
-  useEffect(() => {
-   
-        if(auth.isLoggedIn ){ 
-    setReload(true);
-    axios({
-      method: "get",
-      url: process.env.REACT_APP_BACKEND_URL +`users/client/${auth.userId}`,
-     headers: { "Content-Type": "application/json" }, 
-    }).then((resp) => {
-      setClient(resp.data.client);
-      console.log(client + "client babe");
-      setReload(false);
-    });
-    console.log(client);
-    console.log(auth.userId + "id front end");
-    setReload(true);
-}
-    /* return
-                 
-            }else{return} */
-  }, []);
-
   return (
     <div>
       <div className="persoInfo">
@@ -67,29 +36,28 @@ function PersoInfo() {
           <div className="iTemInInfoBloc">
             <div className="labelDesc">First Name : </div>
             <div className="actualInfoValue">
-              {" "}
-              {client && client.prenom ? client.prenom : name.split(/[, ]+/)[0]}
+              {dataValues ? dataValues.client.prenom : name.split(/[, ]+/)[0]}
             </div>
           </div>
           <div className="iTemInInfoBloc">
             <div className="labelDesc">Last Name : </div>
             <div className="actualInfoValue">
               {" "}
-              {client && client.nom ? client.nom : name.split(/[, ]+/)[1]}
+              {dataValues ? dataValues.client.nom : name.split(/[, ]+/)[1]}
             </div>
           </div>
           <div className="iTemInInfoBloc">
             <div className="labelDesc">Email : </div>
             <div className="actualInfoValue">
               {" "}
-              {client && client.email ? client.email : email}
+              {dataValues ? dataValues.client.email : email}
             </div>
           </div>
           <div className="iTemInInfoBloc">
             <div className="labelDesc">Phone : </div>
             <div className="actualInfoValue">
               {" "}
-              {client && client.phone ? client.phone : "Load phone number..."}
+              {dataValues ? dataValues.client.phone : "Load phone number..."}
             </div>
           </div>
         </div>

@@ -23,26 +23,22 @@ function Formations(props) {
 
   return (
     <div className="formationsBlock">
-      <div className="categoryName">{/* {props.category} */} All Our Workshops</div>
+      <div className="categoryName">{props.title}</div>
+      {props.filter ? 
       <div className="gridFormation">
-        {props.dataFormations && props.dataFormations.map((e, index)=>(
-          <div key={index} onClick={formationRasp}>
-          <FormationItem title={e} />
+        {props.workshopsToShow.map((e, index)=>(
+          <div key={index} onClick={()=>{props.selectFormation(e)}}>
+          <FormationItem title={e.name} />
         </div>
-        ))}
-      {/*   <div onClick={formationRasp}>
-          <FormationItem title={"RaspBerry PI"} />
+        ))} </div> : 
+        <div className="gridFormation">
+        {props.data.map((e, index)=>(
+          <div key={index} onClick={()=>{props.selectFormation(e)}}>
+          <FormationItem title={e.name} />
         </div>
-        <div onClick={formationSTM}>
-          <FormationItem title={"STM 32"} />
-        </div>
-        <div onClick={formationESP}>
-          <FormationItem title={"ESP 32"} />
-        </div>
-        <div onClick={formationArd}>
-          <FormationItem title={"Arduino"} />
-        </div> */}
-      </div>
+        ))} </div> 
+      }
+    
     </div>
   );
 }

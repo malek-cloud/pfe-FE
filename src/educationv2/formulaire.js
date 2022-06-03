@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./education.css";
 import axios from "axios";
-import { useState, useEffect, useRef } from "react";
-import WorkshopChoice from "./workshopChoice";
+import { useState, useRef } from "react";
+
 function Formulaire(props) {
-
-
-  const [select, setSelect] = useState(props.category);
   const [load, setLoad] = useState(false);
   const [nameState, setNameState] = useState('');
+  const [workshopChoice, setWorkshopChoice] = useState(props.formation.name);
   const [emailState, setEmailState] = useState('');
   const [profState, setProfState] = useState('');
   const [etabState, setEtabState] = useState('');
@@ -22,19 +20,9 @@ function Formulaire(props) {
   const etablissement = useRef();
   const email = useRef();
   const mode = useRef();
+  const workshop = useRef();
   const certificat = useRef();
-
-  
-
-
   const url = process.env.REACT_APP_BACKEND_URL +"activities/joinWorkshop";
-  function handleChange(event) {
-    if (event) {
-      setSelect(event.target.value);
-    } else {
-      setSelect(props.category);
-    }
-  }
   const submit = async (event) => {
     event.preventDefault();
     setLoad(true);
@@ -48,17 +36,17 @@ function Formulaire(props) {
         partcipantEmail: email.current.value,
         partcipantProfession: profession.current.value,
         partcipantCollege: etablissement.current.value,
-        workshop: select,
+        workshop: workshop.current.value,
         mode: modeState,
         certificat: certificatState,
       },
     });
    
-    console.log(data);
+
     if (data.status === 200) {
       setLoad(false);
       setMessage("Votre demande a été envoyer avec success ✔");
-      console.log("hedha msg " + message);
+
       setTimeout(()=>{setMessage("")}, 6000);
       setNameState('');
       setEmailState('');
@@ -68,15 +56,20 @@ function Formulaire(props) {
       setCertificatState('');
     } else {
       setMessage("une erreur s'est produite veuillez réessayer svp !");
-      console.log("hedha msg " + message);
+   
       setLoad(false);
       setTimeout(()=>{setMessage("")}, 6000);
 
     }
   };
-  useEffect(() => {
-    setSelect(props.category);
-  }, [props.category]);
+  function handleChange(event){
+    if(event.target.value){
+      setWorkshopChoice(event.target.value);
+    } 
+  }
+  useEffect(()=>{
+    setWorkshopChoice(props.formation.name)
+  },[props.formation.name])
   return (
     <div>
       <div className="askForm">
@@ -164,24 +157,26 @@ function Formulaire(props) {
           />
         </div>
 
-        <div className="selectform" style={{marginLeft:"85px"}}>
+        <div className="selectform" >
           <label htmlFor="pet-select" className="lieuFormation">
             Workshop : <b>*</b>
           </label>
-         {/*  <WorkshopChoice /> */}
          <select
             name="formations"
             id="formations"
-            onChange={e=>{setModeState(e.target.value)}}
+            onChange={handleChange}
             className="selection"
-            ref={mode}
+            ref={workshop}
+            value={workshopChoice}
+            
           >
-            <option value="In our space">Raspberry PI</option>
-            <option value="En ligne">En ligne</option>
+            {props.data.map((e, index)=>{
+               return  <option  key={index} value={e.name}>{e.name}</option>
+              })}
           </select>
         </div>
 
-        <div className="selectform"  style={{marginLeft:"85px"}}>
+        <div className="selectform"  >
           <label htmlFor="pet-select" className="lieuFormation">
             Mode : <b>*</b>
           </label>
@@ -197,7 +192,7 @@ function Formulaire(props) {
             <option value="En ligne">Online</option>
           </select>
         </div>
-        <div className="selectform" style={{marginLeft:"85px"}}>
+        <div className="selectform" >
           <label htmlFor="pet-select" className="lieuFormation">
             Certification :
           </label>
@@ -208,7 +203,6 @@ function Formulaire(props) {
             className="selection"
             ref={certificat}
             onChange={e=>{setCertificatState(e.target.value)}}
-
           >
             <option value=""></option>
             <option value="Avec Certification IT">Avec Certification IT</option>

@@ -15,7 +15,6 @@ function Quantity(props) {
       }
     }
 
-    console.log("ija hani chaditek ");
   }
   function downquantity() {
     if (props.quantity > 1) {

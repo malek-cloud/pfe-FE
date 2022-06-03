@@ -1,13 +1,17 @@
 import "../styles/header.css";
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {useContext} from 'react'
-import {AuthContext} from '../context/loginContext'
-import {useName, useNameUpdate} from '../context/fcbGgle'
+import {
+  useLogoutFunction,
+  useDeconnectionState,
+  useDataContext,
+} from "../context/loginContext";
+import { useName, useNameUpdate } from "../context/fcbGgle";
 function NavBar(props) {
   const name = useName();
   const updateName = useNameUpdate();
-  const auth = useContext(AuthContext);
+  const logout = useLogoutFunction();
+  const deconnect = useDeconnectionState();
   function toggle() {
     document.getElementsByClassName("links")[0].classList.toggle("active");
     document.getElementsByClassName("link")[0].classList.toggle("active");
@@ -18,16 +22,19 @@ function NavBar(props) {
     document.getElementsByClassName("ground")[0].classList.toggle("active");
   }
 
+  const dataconnect = useDataContext();
+
   const [windowDimenion, detectHW] = useState({
     winWidth: window.innerWidth,
     winHeight: window.innerHeight,
   });
-const [deconnectDrop, setDeconnectDrop]=useState(false);
-const [connection, setConnection] = useState("Se Connecter");
-const drop = ()=>{
-/*   if(auth.isLoggedIn){setDeconnectDrop(!deconnectDrop)} */
-if(connection !=="Sign In"){setDeconnectDrop(!deconnectDrop)}
-}
+  const [deconnectDrop, setDeconnectDrop] = useState(false);
+  const [connectName, setName] = useState(false);
+  const drop = () => {
+    if (connectName !== "Sign In") {
+      setDeconnectDrop(!deconnectDrop);
+    }
+  };
   const detectSize = () => {
     detectHW({
       winWidth: window.innerWidth,
@@ -36,15 +43,33 @@ if(connection !=="Sign In"){setDeconnectDrop(!deconnectDrop)}
   };
 
   useEffect(() => {
-    if(name!=="" && !auth.isLoggedIn){
+    if (
+      JSON.parse(localStorage.getItem("userData")) ||
+      !deconnect
+    ) {
+      console.log("ye5i d5alnna?")
+      setName(
+        "Hello, " + JSON.parse(localStorage.getItem("userData")).client.prenom
+      );
+    } else if (name) {
+      setName("Hello, " + name.split(/[, ]+/)[0]);
+    } else if((deconnect || !JSON.parse(localStorage.getItem("userData"))) && !name ) {
+      setName("Sign In");
+    }
+/*     console.log(
+      JSON.parse(localStorage.getItem("userData")).client.prenom +
+        " hedha el ^prenom mel local storagr" +
+        !deconnect
+    ); */
+    /* if(name!=="" && !auth.isLoggedIn){
       setConnection( "Hello " + name.split(/[, ]+/)[0])
     }else if(auth.isLoggedIn && auth.userName ){
       setConnection("Hello "+ auth.userName)
     }else if(name==="" ){
       setConnection("Sign In")
-    }
+    } */
     window.addEventListener("resize", detectSize);
-  
+
     return () => {
       window.removeEventListener("resize", detectSize);
     };
@@ -100,7 +125,6 @@ if(connection !=="Sign In"){setDeconnectDrop(!deconnectDrop)}
             >
               Services
             </Link>
-
             <Link
               to="/shop"
               className="link"
@@ -130,18 +154,34 @@ if(connection !=="Sign In"){setDeconnectDrop(!deconnectDrop)}
               style={{
                 color: props.type === "panier" ? "#FCCD27" : "white",
                 fontWeight: props.type === "panier" ? "bold" : "300",
-                marginLeft : windowDimenion.winWidth > 700 ?  "8vw" : "-60vw",
+                marginLeft: windowDimenion.winWidth > 700 ? "8vw" : "-60vw",
                 textDecoration: props.type === "panier" ? "underline" : "none",
               }}
               onClick={drop}
             >
-              {connection}
-              {/* {auth.isLoggedIn && auth.userName ? "Bonjour, " + auth.userName : "Se Connecter"} */}
+              {/*  {JSON.parse(localStorage.getItem("userData")) &&
+              JSON.parse(localStorage.getItem("userData")).client.prenom && !deconnect
+                ? "Hello, " +
+                  JSON.parse(localStorage.getItem("userData")).client.prenom
+                : "Sign In"} */}
+              {connectName}
             </Link>
-            {deconnectDrop? <div className="dropDeconnect" onClick={()=>{updateName(""); auth.logout(); setDeconnectDrop(false); }}> Se déconnecter</div> : <div></div>}
+            {deconnectDrop && connectName !== "Sign In" ? (
+              <div
+                className="dropDeconnect"
+                onClick={() => {
+                  updateName("");
+                  logout();
+                  setDeconnectDrop(false);
+                }}
+              >
+                Se déconnecter
+              </div>
+            ) : (
+              <div></div>
+            )}
           </div>
         </div>
-        
       </nav>
       <img id="menuIcon" onClick={toggle} src="../images/menu.png" alt="" />
     </div>

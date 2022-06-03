@@ -2,7 +2,7 @@ import React from "react";
 function DetailedFormation(props) {
   function retour() {
     props.selectFormation("");
-    props.selectCategory("Embedded system")
+
   }
   return (
     <div className="detailedFormation">
@@ -22,10 +22,10 @@ function DetailedFormation(props) {
             />
           </svg>
         </div>
-        <div className="formationTitleDetail">{props.formation}</div>
+        <div className="formationTitleDetail">{props.formation.name}</div>
       </div>
       <div className="inlineImage">
-      <img className="imageFormation" src="/images/raspberry.png" alt="" />
+      <img className="imageFormation" src={process.env.REACT_APP_BACKEND_URL + `${props.formation.images[0]}`} alt="" />
 
         <div className="mobileCenter">
 
@@ -47,20 +47,21 @@ function DetailedFormation(props) {
         <div className="formationContent">
           <ul>
             <div className="objectifFormation">Workshop goals</div>
-            <div className="levelFormation">Level 1 : </div>
+           {/*  <div className="levelFormation">Level 1 : </div>
             <li>Configure, install and take control of a Raspberry Pi</li>
             <li>Leverage Python to exploit the map</li>
             <div className="levelFormation">Level 2 : </div>
             <li>Dialog with components: leds, motors, camera</li>
-            <li>Exchanging data through a serial link</li>
+            <li>Exchanging data through a serial link</li> */}
+            {props.formation.description}
           </ul>
         </div>
         <div className="tabledetail">
           <div className="rowTableDetail">
-            <b>💰 Price : </b> 120DT
+            <b>💰 Price : </b> {props.formation.prix}
           </div>
           <div className="rowTableDetail">
-            <b>🕒 Duration : </b> 20H
+            <b>🕒 Duration : </b> {props.formation.period}
           </div>
           <div className="rowTableDetail">
             <b>💁‍♂ Age : </b> &gt; 18YEARS{" "}

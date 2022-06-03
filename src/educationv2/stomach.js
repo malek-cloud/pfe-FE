@@ -8,74 +8,65 @@ import "./education.css";
 import axios from "axios";
 function Stomach() {
   const [data, setData] = useState([]);
-  const [dataCategories, setDataCategories] = useState([]);
-  const [dataFormations, setDataFormations] = useState([]);
+
   useEffect(() => {
     const getFormations = async () => {
       const response = await axios.get(
         process.env.REACT_APP_BACKEND_URL + "activities/Formations"
       );
       setData(response.data.formations);
-
-      const categ = [];
-      response.data.formations.map(e =>{
-        categ.push(e.field)
-      })
-      setDataCategories(categ)
-      const forma = [];
-      response.data.formations.map(e =>{
-        forma.push(e.name)
-      })
-      console.log(forma)
-      setDataFormations(forma);
     };
     getFormations();
   }, []);
 
-  const [category, setCategory] = useState("Embedded system");
   const [formation, setFormation] = useState("");
-  const [subCategory, setSubCategory] = useState([]);
-  function getCategory(value) {
-    setCategory(value);
-  }
-  function getSubCateg(value) {
-    setSubCategory(value);
-    console.log("stomach file " + subCategory);
-  }
+  const [filter, setFilter] = useState(false);
+  const [title, setTitle] = useState("All Our Workshops");
+  const [workshopsToShow, setWorkshopsToShow] = useState(data);
+
   function getFormation(value) {
     setFormation(value);
   }
+  function getFilter(value) {
+    setFilter(value);
+  }
+  function getTitle(value) {
+    setTitle(value);
+  }
+  function getWorkshopsToShow(value) {
+    setWorkshopsToShow(value);
+  }
   return (
-    <div >
-     {data && dataCategories &&  dataFormations && <div className="stomach">
-      <Categories
-        data={data}
-        dataCategories={dataCategories}
-        selectCategory={getCategory}
-        category={category}
-        selectSubCateg={getSubCateg}
-      />
+    <div>
+      {data && workshopsToShow && (
+        <div className="stomach">
+          <Categories
+            data={data}
+            title={title}
+            getFilter={getFilter}
+            getTitle={getTitle}
+            getWorkshops={getWorkshopsToShow}        
+          />
 
-      {formation === "" ? (
-        <Formations
-          data={data}
-          dataFormations={dataFormations}
-          category={category}
-          formation={formation}
-          selectCategory={getCategory}
-          selectFormation={getFormation}
-        />
-      ) : (
-        <DetailedFormation
-        data={data}
-        dataFormations={dataFormations}
-          formation={formation}
-          selectFormation={getFormation}
-          selectCategory={getCategory}
-        />
+          {formation === "" ? (
+            <Formations
+              data={data}
+              title={title}
+              filter={filter}
+              workshopsToShow={workshopsToShow}
+              formation={formation}
+              selectFormation={getFormation}
+            />
+          ) : (
+            <DetailedFormation
+              data={data}
+              formation={formation}
+              selectFormation={getFormation}   
+            />
+          )}
+          <Formulaire data={data} formation={formation} />
+        </div>
       )}
-      <Formulaire category={category} subCategory={subCategory} />
-       </div>}
     </div>
   );
 }

@@ -2,9 +2,10 @@ import React, { useState, useRef } from "react";
 import "./order.css";
 import axios from "axios";
 import { useContext } from "react";
-import { totalContext } from "../context/cardContext";
+import { totalContext, useCardItems } from "../context/cardContext";
 function OrderInfo() {
   const price = useContext(totalContext);
+  const achats = useCardItems();
   const region = useRef();
   const city = useRef();
   const adress = useRef();
@@ -17,20 +18,67 @@ function OrderInfo() {
   const validate = async () => {
     setLoad(true);
     if (card) {
+      console.log("card is true");
       const url = process.env.REACT_APP_BACKEND_URL + "pay";
       try {
+        console.log("card is true 2");
+
         const resp = await axios.post(url, {
-          amount : price + 6
+          amount: "200",
         });
         console.log("this is the result" + resp.data.link.link);
         setPayUrl(resp);
-        console.log(payUrl);
-        window.location.replace(resp.data.link.link);
+        console.log(payUrl + " pay url ?");
+        const products = [];
+        achats.map((e) => products.push(e._id));
+        console.log(products.toString());
+
+        const data = await axios.post(
+          process.env.REACT_APP_BACKEND_URL + "shop/createOrder",
+          {
+            userId: JSON.parse(localStorage.getItem("userData")).client._id,
+            achats: products,
+            amount: price + 6,
+            paymentId: resp.data.link.payment_id,
+            status: "paid",
+            region: region.current.value,
+            city: city.current.value,
+            adress: adress.current.value,
+          }
+        );
+        console.log("this is the result" + data.data);
+         window.location.replace(resp.data.link.link);
       } catch (err) {
         // Handle Error Here
         console.error(err);
       }
-    } 
+    } else {
+      const url = process.env.REACT_APP_BACKEND_URL + "shop/createOrder";
+      try {
+        console.log(
+          JSON.parse(localStorage.getItem("userData")).client._id +
+            " the client id"
+        );
+
+        const products = [];
+        achats.map((e) => products.push(e._id));
+        console.log(products.toString());
+
+        const resp = await axios.post(url, {
+          userId: JSON.parse(localStorage.getItem("userData")).client._id,
+          achats: products,
+          amount: price + 6,
+          status: "not paid",
+          region: region.current.value,
+          city: city.current.value,
+          adress: adress.current.value,
+        });
+        console.log("this is the result" + resp.data);
+      } catch (err) {
+        // Handle Error Here
+        console.error(err);
+      }
+    }
     setLoad(false);
   };
   return (
@@ -46,21 +94,21 @@ function OrderInfo() {
         <div className="orderBlocAdresse">
           <div className="orderLabel">Region : </div>
           <input
-          ref={region}
+            ref={region}
             type="text"
             placeholder="Bizerte / Sfax / Le Kef / Jendouba / Sousse / Tunis ...."
             className="inputRegion"
           />
           <div className="orderLabel">City : </div>
           <input
-          ref={city}
+            ref={city}
             type="text"
             placeholder="Enter your current city ...."
             className="inputRegion"
           />
           <div className="orderLabel">Adress * : </div>
           <textarea
-          ref={adress}
+            ref={adress}
             className="textAreaAdress"
             name=""
             id=""
@@ -101,8 +149,8 @@ function OrderInfo() {
         </form>
       </div>
       {load ? (
-        <div class="spinner-border text-dark" role="status">
-          <span class="sr-only">Loading...</span>
+        <div className="spinner-border text-dark" role="status">
+          <span className="sr-only">Loading...</span>
         </div>
       ) : (
         <div className="endOrder" onClick={validate}>

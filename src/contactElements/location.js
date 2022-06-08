@@ -14,7 +14,7 @@ function Location() {
           ✔️ http://www.bemaker.tn/ <br />
 
           </div>
-       <MapContainer/>
+       {/* <MapContainer/> */}
 
       </div>
     </div>

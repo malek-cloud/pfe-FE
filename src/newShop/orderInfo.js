@@ -73,6 +73,7 @@ function OrderInfo() {
           city: city.current.value,
           adress: adress.current.value,
         });
+        window.location.replace("http://localhost:3000/shop")
         console.log("this is the result" + resp.data);
       } catch (err) {
         // Handle Error Here
